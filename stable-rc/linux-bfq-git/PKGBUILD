@@ -260,10 +260,10 @@ package_linux-bfq-git() {
     # remove the firmware
     rm -rf "${pkgdir}/lib/firmware"
     # make room for external modules
-    ln -s "../extramodules-${_basekernel}${_kernelname:bfq}" "${pkgdir}/lib/modules/${_kernver}/extramodules"
+    ln -s "../extramodules-${_basekernel}${_kernelname:bfq-git}" "${pkgdir}/lib/modules/${_kernver}/extramodules"
     # add real version for building modules and running depmod from post_install/upgrade
-    mkdir -p "${pkgdir}/lib/modules/extramodules-${_basekernel}${_kernelname:bfq}"
-    echo "${_kernver}" > "${pkgdir}/lib/modules/extramodules-${_basekernel}${_kernelname:bfq}/version"
+    mkdir -p "${pkgdir}/lib/modules/extramodules-${_basekernel}${_kernelname:bfq-git}"
+    echo "${_kernver}" > "${pkgdir}/lib/modules/extramodules-${_basekernel}${_kernelname:bfq-git}/version"
 
     # Now we call depmod...
     depmod -b "${pkgdir}" -F System.map "${_kernver}"
