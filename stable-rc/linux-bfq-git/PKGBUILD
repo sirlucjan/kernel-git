@@ -52,7 +52,7 @@ pkgbase=linux-bfq-git
 pkgname=('linux-bfq-git' 'linux-bfq-git-headers' 'linux-bfq-git-docs')
 _kernelname=-bfq-git
 _srcname=linux-stable-rc
-pkgver=4.7.r42.g464b5dd
+pkgver=4.7.3.r0.gd7f6728
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://algo.ing.unimo.it"
@@ -60,7 +60,7 @@ license=('GPL2')
 options=('!strip')
 makedepends=('kmod' 'inetutils' 'bc' 'git')
 _bfqrel=v7r11
-_bfqver=v8r2
+_bfqver=v8r3
 _bfqpath="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/4.7.0-${_bfqver}"
 #_bfqpath="https://pf.natalenko.name/mirrors/bfq/4.7.0-${_bfqrel}"
 _gcc_patch="enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patch"
@@ -447,9 +447,9 @@ sha512sums=('SKIP'
             '0759a2f48377d38fd331f243c9d49ca63059b2388cfcd46e2f88194d5a97741d2546e044807fe983065de2dcdefdf66197fa6e2630bb6afd0cc8abc3f76c5f01'
             '53fb9471f477e02e132ad4b61fb2381c4ca3268ac43d268a5a40b2ddc6df26ccadf322cd696a80ec51073a6fb1c763a3dd4dbad516dda9cea6c7e6b1da21914c'
             '02c5d82d1129ecc5f6322161e96e4db160fbcfe0c5ce1675ae9e828edfb39033404fc66f2a74fba4a30808291a25d3d0ff761c64957f41bafa8560b50dac1fa3'
-            'e0f8e699a16c21fa4c03f3a16f81b1adc4e2da30123d5a06c938ffdd6e837cc9cb76c28ba8417432d7f7c2551c3fcd3a1ecca863da36ab399f3e9cb1eeaeb2e1'
+            '1b8b663071da245b1f744f6c9cb793b255f19a2346c7f2cb0115dd110d59e02916d6d6f5128c176788787bf96146511855a6002cbeb01570ad9f9cdb8fc45d9f'
             '62fdd5c0a060a051b64093d71fbb028781061ccb7a28c5b06739a0b24dac0945740d9b73ff170784f60005a589774bcc14f56523ec51557eb3a677f726ec34cf'
             '0e995f9a386a15357f2c5d2a8cde4342f0965cc8a7976ef0c7bacd8865bc0f5070b9fabdf2557a98e7e377df0c31755732e838d1c725ebf09a671570ab005e04'
             'd9d28e02e964704ea96645a5107f8b65cae5f4fb4f537e224e5e3d087fd296cb770c29ac76e0ce95d173bc420ea87fb8f187d616672a60a0cae618b0ef15b8c8'
-            '9e3dde960bfc512bd9a2e3914fcaf46a0d6675efd059cb54a6924605a59d51c80782ce20662604d0fcf8c2a7031aac5b750556272232d63b1f3fb46f969fff77'
-            'af9088f4243bbf9dfd3a53fa7f1608d75e3038a06927953a123412f2258e28460e0a90a58d92948234b74f42e56adecc7cc1fcae725203c5f5147f3db5f5e703')
+            '7a47c01e4bb02cc483545c61fa2a6aa76e9b4995274939d0412f51f6a0dffcb3cd40227136ef536c37dff159bb8141ab8e563f0b584a3f69fe0c87f54371844a'
+            'd36ccc73f4c7925febf137643d5bfb640228e097936187124232cb0446e8909bdb408dfedbb3c4b394e4dd725370729eb09476949194e2d9defa9d30b91b59ab')
