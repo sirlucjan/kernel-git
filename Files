@@ -5,21 +5,23 @@
 │   └── linux-bfq-git
 │       ├── 0005-BFQ-Fix.patch
 │       ├── 0006-BFQ-Fix.patch
+│       ├── 99-linux.hook
 │       ├── PKGBUILD
 │       ├── change-default-console-loglevel.patch
 │       ├── config
 │       ├── config.x86_64
-│       ├── linux-bfq-git.install
-│       └── linux-bfq-git.preset
+│       ├── linux.install
+│       └── linux.preset
 └── stable-rc
     └── linux-bfq-git
         ├── 0005-BFQ-Fix.patch
         ├── 0006-BFQ-Fix.patch
+        ├── 99-linux.hook
         ├── PKGBUILD
         ├── change-default-console-loglevel.patch
         ├── config
         ├── config.x86_64
-        ├── linux-bfq-git.install
-        └── linux-bfq-git.preset
+        ├── linux.install
+        └── linux.preset
 
-4 directories, 18 files
+4 directories, 20 files
