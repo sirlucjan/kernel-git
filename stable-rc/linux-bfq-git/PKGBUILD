@@ -410,7 +410,7 @@ _package-headers() {
 	esac
 	done
 	
-        # remove a files already in linux-bfq-docs package
+        # remove a files already in linux-bfq-git-docs package
         rm -f "${pkgdir}/usr/lib/modules/${_kernver}/build/Documentation/kbuild/Kconfig.recursion-issue-01"
         rm -f "${pkgdir}/usr/lib/modules/${_kernver}/build/Documentation/kbuild/Kconfig.recursion-issue-02"
         rm -f "${pkgdir}/usr/lib/modules/${_kernver}/build/Documentation/kbuild/Kconfig.select-break"
@@ -430,7 +430,7 @@ _package-docs() {
     find "${pkgdir}" -type f -exec chmod 444 {} \;
     find "${pkgdir}" -type d -exec chmod 755 {} \;
 
-    # remove a file already in linux package
+    # remove a file already in linux-bfq-git package
     rm -f "${pkgdir}/usr/lib/modules/${_kernver}/build/Documentation/DocBook/Makefile"
 }
 
