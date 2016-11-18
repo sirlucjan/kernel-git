@@ -49,8 +49,7 @@ _use_current=
 ### Do not edit below this line unless you know what you're doing
 
 pkgbase=linux-bfq-git
-pkgname=('linux-bfq-git' 'linux-bfq-git-headers' 'linux-bfq-git-docs')
-_kernelname=-bfq-git
+# pkgname=('linux-bfq-git' 'linux-bfq-git-headers' 'linux-bfq-git-docs')
 _srcname=linux-stable-rc
 pkgver=4.8.9.r0.g876577321657
 pkgrel=1
