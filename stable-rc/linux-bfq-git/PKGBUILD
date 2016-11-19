@@ -82,13 +82,13 @@ source=('git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.gi
         '0006-BFQ-Fix.patch')
 
         
+_kernelname=${pkgbase#linux}
+        
 pkgver() {
   cd "${_srcname}"
 
   git describe --long | sed -E 's/^v//;s/([^-]*-g)/r\1/;s/-/./g;s/\.rc/rc/'
 } 
-        
-_kernelname=${pkgbase#linux} 
 
 prepare() {
     cd "${srcdir}/${_srcname}"
