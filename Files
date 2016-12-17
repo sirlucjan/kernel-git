@@ -4,8 +4,7 @@
 ├── stable
 │   └── linux-bfq-git
 │       ├── 0001-x86-fpu-Fix-invalid-FPU-ptrace-state-after-execve.patch
-│       ├── 0005-BFQ-Fix.patch
-│       ├── 0006-BFQ-Fix.patch
+│       ├── 0005-BFQ-update-to-v8r6.patch
 │       ├── 99-linux.hook
 │       ├── PKGBUILD
 │       ├── change-default-console-loglevel.patch
@@ -17,8 +16,7 @@
 └── stable-rc
     └── linux-bfq-git
         ├── 0001-x86-fpu-Fix-invalid-FPU-ptrace-state-after-execve.patch
-        ├── 0005-BFQ-Fix.patch
-        ├── 0006-BFQ-Fix.patch
+        ├── 0005-BFQ-update-to-v8r6.patch
         ├── 99-linux.hook
         ├── PKGBUILD
         ├── change-default-console-loglevel.patch
@@ -28,4 +26,4 @@
         ├── linux.preset
         └── net_handle_no_dst_on_skb_in_icmp6_send.patch
 
-4 directories, 24 files
+4 directories, 22 files
