@@ -3,7 +3,6 @@
 ├── README.md
 ├── stable
 │   └── linux-bfq-git
-│       ├── 0001-dccp-fix-freeing-skb-too-early-for-IPV6_RECVPKTINFO.patch
 │       ├── 0005-BFQ-update-to-v8r8.patch
 │       ├── 99-linux.hook
 │       ├── PKGBUILD
@@ -14,7 +13,6 @@
 │       └── linux.preset
 └── stable-rc
     └── linux-bfq-git
-        ├── 0001-dccp-fix-freeing-skb-too-early-for-IPV6_RECVPKTINFO.patch
         ├── 0005-BFQ-update-to-v8r8.patch
         ├── 99-linux.hook
         ├── PKGBUILD
@@ -24,4 +22,4 @@
         ├── linux.install
         └── linux.preset
 
-4 directories, 20 files
+4 directories, 18 files
