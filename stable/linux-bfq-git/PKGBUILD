@@ -51,7 +51,7 @@ _use_current=
 pkgbase=linux-bfq-git
 # pkgname=('linux-bfq-git' 'linux-bfq-git-headers' 'linux-bfq-git-docs')
 _srcname=linux-stable
-pkgver=4.10.1.r0.gd23a9821d397
+pkgver=4.10.2.r0.g1e4d47787a21
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://algo.ing.unimo.it"
@@ -77,7 +77,7 @@ source=('git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git#b
          # standard config files for mkinitcpio ramdisk
         'linux.preset'
         # patches from https://github.com/linusw/linux-bfq/commits/bfq-v8
-        )
+        '0001-tty-n_hdlc-get-rid-of-racy-n_hdlc_tbuf.patch')
 
         
 _kernelname=${pkgbase#linux}
@@ -90,6 +90,10 @@ pkgver() {
 
 prepare() {
     cd "${srcdir}/${_srcname}"
+    
+    ### Patch for CVE-2017-2636
+        msg "Fix CVE-2017-2636"
+        patch -p1 -i "${srcdir}/0001-tty-n_hdlc-get-rid-of-racy-n_hdlc_tbuf.patch"
 
     ### Patch source with BFQ
         msg "Patching source with BFQ patches"
@@ -432,5 +436,6 @@ sha512sums=('SKIP'
             'bd900391ba630b17534277da3e979208c7f46ca60d100b16d322b268f79edcfcf7a635c08b8b214a7eac4342314dd2bcaa7b5abc5d41c7c37843a0b46ea818e4'
             '6a95a8b3e55e886131e75e17787ad245356f75562b9bf03e35a8b1ff1fbe6d9491e7bb53029bb61047187b5aa8a9bb2c5072298a1760a9f39f3567de3abba138'
             'd6faa67f3ef40052152254ae43fee031365d0b1524aa0718b659eb75afc21a3f79ea8d62d66ea311a800109bed545bc8f79e8752319cd378eef2cbd3a09aba22'
-            '2dc6b0ba8f7dbf19d2446c5c5f1823587de89f4e28e9595937dd51a87755099656f2acec50e3e2546ea633ad1bfd1c722e0c2b91eef1d609103d8abdc0a7cbaf')
+            '2dc6b0ba8f7dbf19d2446c5c5f1823587de89f4e28e9595937dd51a87755099656f2acec50e3e2546ea633ad1bfd1c722e0c2b91eef1d609103d8abdc0a7cbaf'
+            '397fc751697cc4e2ceb7e6d854f5e7fc115ed8511df406ffe5d8f80afeec385ba64cd28c4666bb206612fdcd7a578b60ca6ff125c2138c615aee6135d86b0197')
             
