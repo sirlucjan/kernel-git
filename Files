@@ -3,7 +3,6 @@
 ├── README.md
 ├── stable
 │   └── linux-bfq-git
-│       ├── 0001-tty-n_hdlc-get-rid-of-racy-n_hdlc_tbuf.patch
 │       ├── 99-linux.hook
 │       ├── PKGBUILD
 │       ├── config.i686
@@ -19,4 +18,4 @@
         ├── linux.install
         └── linux.preset
 
-4 directories, 15 files
+4 directories, 14 files
