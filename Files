@@ -3,7 +3,8 @@
 ├── README.md
 ├── stable
 │   └── linux-bfq-git
-│       ├── 99-linux.hook
+│       ├── 0005-BFQ-bugfix.patch
+│       ├── 90-linux.hook
 │       ├── PKGBUILD
 │       ├── config.i686
 │       ├── config.x86_64
@@ -11,11 +12,12 @@
 │       └── linux.preset
 └── stable-rc
     └── linux-bfq-git
-        ├── 99-linux.hook
+        ├── 0005-BFQ-bugfix.patch
+        ├── 90-linux.hook
         ├── PKGBUILD
         ├── config.i686
         ├── config.x86_64
         ├── linux.install
         └── linux.preset
 
-4 directories, 14 files
+4 directories, 16 files
