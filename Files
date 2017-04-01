@@ -3,7 +3,7 @@
 ├── README.md
 ├── stable
 │   └── linux-bfq-git
-│       ├── 0005-BFQ-bugfix.patch
+│       ├── 0005-BFQ-update-to-v8r9.patch
 │       ├── 90-linux.hook
 │       ├── PKGBUILD
 │       ├── config.i686
@@ -12,7 +12,7 @@
 │       └── linux.preset
 └── stable-rc
     └── linux-bfq-git
-        ├── 0005-BFQ-bugfix.patch
+        ├── 0005-BFQ-update-to-v8r9.patch
         ├── 90-linux.hook
         ├── PKGBUILD
         ├── config.i686
