@@ -4,6 +4,7 @@
 ├── stable
 │   └── linux-bfq-git
 │       ├── 0005-BFQ-update-to-v8r9.patch
+│       ├── 0006-BFQ-update-to-v8r10.patch
 │       ├── 90-linux.hook
 │       ├── PKGBUILD
 │       ├── config.i686
@@ -13,6 +14,7 @@
 └── stable-rc
     └── linux-bfq-git
         ├── 0005-BFQ-update-to-v8r9.patch
+        ├── 0006-BFQ-update-to-v8r10.patch
         ├── 90-linux.hook
         ├── PKGBUILD
         ├── config.i686
@@ -20,4 +22,4 @@
         ├── linux.install
         └── linux.preset
 
-4 directories, 16 files
+4 directories, 18 files
