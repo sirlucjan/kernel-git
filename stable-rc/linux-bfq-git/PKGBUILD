@@ -51,7 +51,7 @@ _use_current=
 pkgbase=linux-bfq-git
 # pkgname=('linux-bfq-git' 'linux-bfq-git-headers' 'linux-bfq-git-docs')
 _srcname=linux-stable-rc
-pkgver=4.11.2.r0.g02d868373529
+pkgver=4.11.5.r0.gbe8335f6b5ee
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://algo.ing.unimo.it"
@@ -281,7 +281,7 @@ _package-headers() {
 	mkdir -p "${pkgdir}/usr/lib/modules/${_kernver}/build/include"
 
 	for i in acpi asm-generic config crypto drm generated keys linux math-emu \
-		media net pcmcia scsi soc sound trace uapi video xen; do
+		media net pcmcia rdma scsi soc sound trace uapi video xen; do
 	cp -a include/${i} "${pkgdir}/usr/lib/modules/${_kernver}/build/include/"
 	done
 
@@ -429,8 +429,8 @@ sha512sums=('SKIP'
             'be1b94ac52ed519243aa1889bd392dd1e68ec0a2fdae4bf5d2c9fa62a33cad94f1ff6db26e66cd4de60a4e07ab7d2cbad6b3f9a625ddeb909702f5bf39a2368a'
             'cd82bce44c7d5a8148e69ae8bab3ea10df1b65bb97a6494c0c0ffe0e5b6f7e6eb08d8c2c3597e31e3d88ba908d36ab749fc97aaccf51857bbd29a697395789c9'
             '77d80d50d8c4323ed36fd2097ba9f6b49bb8d7cae59d32ffa76b309758a7e9f972d26fedd77046d88ce2691bb01a07909f8bdc34ba214414be3bc030ee31994d'
-            'cde29c4250c8d7c8753ae81bf3f566f65cd9b19aa033bd8537b83de27dc3fda0b7dae66b74196d316518a0a98921ff45682fb4afb156769c56b7a3d9b846c9d9'
-            'b7b0289b773eed89f10d3933a2434cbb1f58618215e89b6826329081efae06988c15d7723f9feef8df66f793036be59baa1d358b1c21cb099ad4e1054bf6287e'
+            '9f6867ac759a21677296e12e152d295576418019ccddbf36be9b440b5fd12fa00b46be72faaf150a9cd32b8229559cab7c7f72ada7a724abb87ceccd77681c58'
+            '03347b2ad9b6b1cad062dc0fe711df12aa4347840b728033eccf3cacd0bd0cdf6bb76fb02ec491c40602aafd207b58c6826c35c943fdcc7f020ccf0b7c4e6eeb'
             'd6faa67f3ef40052152254ae43fee031365d0b1524aa0718b659eb75afc21a3f79ea8d62d66ea311a800109bed545bc8f79e8752319cd378eef2cbd3a09aba22'
             '2dc6b0ba8f7dbf19d2446c5c5f1823587de89f4e28e9595937dd51a87755099656f2acec50e3e2546ea633ad1bfd1c722e0c2b91eef1d609103d8abdc0a7cbaf')
             
