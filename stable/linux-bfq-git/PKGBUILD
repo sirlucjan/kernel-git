@@ -52,7 +52,7 @@ pkgbase=linux-bfq-git
 # pkgname=('linux-bfq-git' 'linux-bfq-git-headers' 'linux-bfq-git-docs')
 _srcname=linux-stable
 pkgver=4.11.12.r0.gbd1a9eb6a755
-pkgrel=2
+pkgrel=3
 arch=('i686' 'x86_64')
 url="http://algo.ing.unimo.it"
 license=('GPL2')
@@ -62,6 +62,8 @@ _bfqrel=v7r11
 _bfqver=v8r11
 _bfqpath="http://algo.ing.unimo.it/people/paolo/disk_sched/patches/4.11.0-${_bfqver}"
 #_bfqpath="https://pf.natalenko.name/mirrors/bfq/4.11.0-${_bfqver}"
+#_lucjanpath="https://raw.githubusercontent.com/sirlucjan/lucjan-kernels/master/patches/4.11"
+_lucjanpath="https://gitlab.com/sirlucjan/kernel-patches/raw/master/4.11"
 _gcc_patch="enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v3.15+.patch"
 
 source=('git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git#branch=linux-4.11.y'
@@ -77,8 +79,8 @@ source=('git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git#b
          # standard config files for mkinitcpio ramdisk
         'linux.preset'
         # patches from https://github.com/linusw/linux-bfq/commits/bfq-v8
-        '0005-BFQ-update-to-v8r12.patch'
-        '0006-BFQ-bugfix-for-v8r12.patch')
+        "${_lucjanpath}/0005-BFQ-update-to-v8r12.patch"
+        "${_lucjanpath}/0006-BFQ-bugfix-for-v8r12.patch")
 
         
 _kernelname=${pkgbase#linux}
@@ -434,6 +436,6 @@ sha512sums=('SKIP'
             '03347b2ad9b6b1cad062dc0fe711df12aa4347840b728033eccf3cacd0bd0cdf6bb76fb02ec491c40602aafd207b58c6826c35c943fdcc7f020ccf0b7c4e6eeb'
             'd6faa67f3ef40052152254ae43fee031365d0b1524aa0718b659eb75afc21a3f79ea8d62d66ea311a800109bed545bc8f79e8752319cd378eef2cbd3a09aba22'
             '2dc6b0ba8f7dbf19d2446c5c5f1823587de89f4e28e9595937dd51a87755099656f2acec50e3e2546ea633ad1bfd1c722e0c2b91eef1d609103d8abdc0a7cbaf'
-            'b1f6306a27d7e25eb4ff3eb51cb1fe38b0ca035cff229537d1b9f68bdc25861f2fecdeeeb1582e34cd166ee4275e49e4c679247a4c36109b2dcd6d4fa9456d60'
-            '9a80a4824e6a8f34a9bcc687b1e1fa91300a5a5fb515db6022e7e43cbacbf2ad93dda1250f968e070be4f6e2429a21e9cf97838120915de9a1144745c34a7188')
+            '05e38539dc51ad64df02223174ba961264355a34fb703555fccfa18e296492c0622f191e522bcf341d6e7f8763c9e57f85ff8645a62e3b8a42446d17d190afb9'
+            '30c44c4b603f6ca15e0c58d98160a40a44c8212b94cd7a3457dbf0303d88962a960800f269334f55b4070a6d872d8d9dcccdbfea3ca2aaa389bef7051132495a')
             
