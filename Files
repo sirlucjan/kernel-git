@@ -2,7 +2,14 @@
 ├── Files
 ├── README.md
 ├── stable
-│   └── linux-bfq-git
+│   ├── linux-bfq-git
+│   │   ├── 90-linux.hook
+│   │   ├── PKGBUILD
+│   │   ├── config.i686
+│   │   ├── config.x86_64
+│   │   ├── linux.install
+│   │   └── linux.preset
+│   └── linux-uksm-git
 │       ├── 90-linux.hook
 │       ├── PKGBUILD
 │       ├── config.i686
@@ -10,7 +17,14 @@
 │       ├── linux.install
 │       └── linux.preset
 └── stable-rc
-    └── linux-bfq-git
+    ├── linux-bfq-git
+    │   ├── 90-linux.hook
+    │   ├── PKGBUILD
+    │   ├── config.i686
+    │   ├── config.x86_64
+    │   ├── linux.install
+    │   └── linux.preset
+    └── linux-uksm-git
         ├── 90-linux.hook
         ├── PKGBUILD
         ├── config.i686
@@ -18,4 +32,4 @@
         ├── linux.install
         └── linux.preset
 
-4 directories, 14 files
+6 directories, 26 files
