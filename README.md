@@ -14,6 +14,13 @@
 git clone https://github.com/sirlucjan/kernel-git.git
 
 ```
+or
+
+```
+git clone https://gitlab.com/sirlucjan/kernel-git.git
+
+```
+
 # Install:
 
 
