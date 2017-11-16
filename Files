@@ -5,31 +5,27 @@
 │   ├── linux-bfq-git
 │   │   ├── 90-linux.hook
 │   │   ├── PKGBUILD
-│   │   ├── config.i686
-│   │   ├── config.x86_64
+│   │   ├── config
 │   │   ├── linux.install
 │   │   └── linux.preset
 │   └── linux-uksm-git
 │       ├── 90-linux.hook
 │       ├── PKGBUILD
-│       ├── config.i686
-│       ├── config.x86_64
+│       ├── config
 │       ├── linux.install
 │       └── linux.preset
 └── stable-rc
     ├── linux-bfq-git
     │   ├── 90-linux.hook
     │   ├── PKGBUILD
-    │   ├── config.i686
-    │   ├── config.x86_64
+    │   ├── config
     │   ├── linux.install
     │   └── linux.preset
     └── linux-uksm-git
         ├── 90-linux.hook
         ├── PKGBUILD
-        ├── config.i686
-        ├── config.x86_64
+        ├── config
         ├── linux.install
         └── linux.preset
 
-6 directories, 26 files
+6 directories, 22 files
