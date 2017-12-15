@@ -10,6 +10,8 @@
 │   │   └── linux.preset
 │   └── linux-uksm-git
 │       ├── 0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
+│       ├── 0001-e1000e-Fix-e1000_check_for_copper_link_ich8lan-retur.patch
+│       ├── 0002-dccp-CVE-2017-8824-use-after-free-in-DCCP-code.patch
 │       ├── 60-linux.hook
 │       ├── 90-linux.hook
 │       ├── 99-linux.hook
@@ -26,6 +28,8 @@
     │   └── linux.preset
     └── linux-uksm-git
         ├── 0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
+        ├── 0001-e1000e-Fix-e1000_check_for_copper_link_ich8lan-retur.patch
+        ├── 0002-dccp-CVE-2017-8824-use-after-free-in-DCCP-code.patch
         ├── 60-linux.hook
         ├── 90-linux.hook
         ├── 99-linux.hook
@@ -34,4 +38,4 @@
         ├── linux.install
         └── linux.preset
 
-6 directories, 28 files
+6 directories, 32 files
