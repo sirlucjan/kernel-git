@@ -127,10 +127,6 @@ prepare() {
 	msg "Running make mrproper to clean source tree"
 	make mrproper
     
-    ### Fix https://www.spinics.net/lists/stable/msg207374.html
-        msg "Fix execvp: ./sync-check.sh error"
-        chmod +x tools/objtool/sync-check.sh
-    
 	cp -Tf ../config .config
         
     ### Optionally use running kernel's config
