@@ -51,7 +51,7 @@ _use_current=
 pkgbase=linux-uksm-git
 # pkgname=('linux-uksm-git' 'linux-uksm-git-headers' 'linux-uksm-git-docs')
 _srcname=linux-stable-rc
-pkgver=4.14.12.22.g9840b951e383
+pkgver=4.14.13.0.gb8447222eb20
 pkgrel=1
 arch=('x86_64')
 url="https://github.com/dolohow/uksm"
@@ -339,6 +339,9 @@ _package-headers() {
 
     # remove files already in linux-uksm-git-docs package
     rm -r "${_builddir}/Documentation"
+    
+    # remove now broken symlinks
+    find -L "${_builddir}" -type l -printf 'Removing %P\n' -delete
 
     # Fix permissions
     chmod -R u=rwX,go=rX "${_builddir}"
