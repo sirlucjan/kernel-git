@@ -2,12 +2,6 @@
 ├── Files
 ├── README.md
 ├── stable
-│   ├── linux-bfq-git
-│   │   ├── 90-linux.hook
-│   │   ├── config
-│   │   ├── linux.install
-│   │   ├── linux.preset
-│   │   └── PKGBUILD
 │   └── linux-uksm-git
 │       ├── 0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
 │       ├── 0002-drm-i915-edp-Only-use-the-alternate-fixed-mode-if-it.patch
@@ -23,12 +17,6 @@
 │       ├── linux.preset
 │       └── PKGBUILD
 └── stable-rc
-    ├── linux-bfq-git
-    │   ├── 90-linux.hook
-    │   ├── config
-    │   ├── linux.install
-    │   ├── linux.preset
-    │   └── PKGBUILD
     └── linux-uksm-git
         ├── 0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
         ├── 0002-drm-i915-edp-Only-use-the-alternate-fixed-mode-if-it.patch
@@ -44,4 +32,4 @@
         ├── linux.preset
         └── PKGBUILD
 
-6 directories, 38 files
+4 directories, 28 files
