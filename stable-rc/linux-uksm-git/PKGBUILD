@@ -50,8 +50,9 @@ _1k_HZ_ticks=
 
 pkgbase=linux-uksm-git
 # pkgname=('linux-uksm-git' 'linux-uksm-git-headers' 'linux-uksm-git-docs')
+_major=4.16
 _srcname=linux-stable-rc
-pkgver=4.16.6.114.g2556b63fc617
+pkgver=4.16.7.330.g42715b2b2887
 pkgrel=1
 arch=('x86_64')
 url="https://github.com/dolohow/uksm"
@@ -59,13 +60,13 @@ license=('GPL2')
 options=('!strip')
 makedepends=('git' 'kmod' 'inetutils' 'bc' 'libelf')
 _uksm_path="https://raw.githubusercontent.com/dolohow/uksm/master"
-_uksm_patch="uksm-4.16.patch"
+_uksm_patch="uksm-${_major}.patch"
 _gcc_name="kernel_gcc_patch"
 _gcc_rel='20180310'
 _gcc_path="https://github.com/graysky2/kernel_gcc_patch/archive"
 _gcc_patch="enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v4.13+.patch"
 
-source=('git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git#branch=linux-4.16.y'
+source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git#branch=linux-${_major}.y"
         "${_gcc_name}-${_gcc_rel}.tar.gz::${_gcc_path}/${_gcc_rel}.tar.gz"
         "${_uksm_path}/${_uksm_patch}"
          # the main kernel config files
