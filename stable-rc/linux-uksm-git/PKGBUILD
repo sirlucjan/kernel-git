@@ -52,7 +52,7 @@ pkgbase=linux-uksm-git
 # pkgname=('linux-uksm-git' 'linux-uksm-git-headers' 'linux-uksm-git-docs')
 _major=4.16
 _srcname=linux-stable-rc
-pkgver=4.16.7.330.g42715b2b2887
+pkgver=4.16.7.53.g113b01a62036
 pkgrel=1
 arch=('x86_64')
 url="https://github.com/dolohow/uksm"
@@ -62,9 +62,9 @@ makedepends=('git' 'kmod' 'inetutils' 'bc' 'libelf')
 _uksm_path="https://raw.githubusercontent.com/dolohow/uksm/master"
 _uksm_patch="uksm-${_major}.patch"
 _gcc_name="kernel_gcc_patch"
-_gcc_rel='20180310'
+_gcc_rel='20180507'
 _gcc_path="https://github.com/graysky2/kernel_gcc_patch/archive"
-_gcc_patch="enable_additional_cpu_optimizations_for_gcc_v4.9+_kernel_v4.13+.patch"
+_gcc_patch="enable_additional_cpu_optimizations_for_gcc_v8.1+_kernel_v4.13+.patch"
 
 source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git#branch=linux-${_major}.y"
         "${_gcc_name}-${_gcc_rel}.tar.gz::${_gcc_path}/${_gcc_rel}.tar.gz"
@@ -368,9 +368,9 @@ for _p in ${pkgname[@]}; do
 done
 
 sha512sums=('SKIP'
-            '079e34ec7bf3ef36438c648116e24c51e00ea8608a1d8b5776164478522d6a96dcab5fe0431e8e9a6282c11a1edd177e1b68fc971a81717b297e199efc101963'
+            '2b196d2a5a76c50dd8ef604eafebdef41e68751d4854dbd4393d6f75ee42a0def9b0e4f3558b342d18478d0f0ebf3d06d9213b27b0eb1ed7928e6b8944d42ec7'
             'ab962157c2c20faf0bd164a82c2e28ce35fd581d640409ae6419dc2a64c82b7f49e7215149de0bc028dd3d517434160d68127b05137f6b6611641cc871f6c76e'
-            '6b4e4b8913b67ad97576f949daf197f54b84e185cdf1d45699d7ddb5c65e982bdbec30ba0315eebc031a70b1cc0df961912aad4252487a1413f0be87906cba27'
+            '23d8ecf62b17ccd9acad6405f252b324849119953785f664e73779f25429889d7a6fdcf14cd402b2ff437f09feaec530d1ce356d2d898b4c19d36e43af1a06b3'
             '7ad5be75ee422dda3b80edd2eb614d8a9181e2c8228cd68b3881e2fb95953bf2dea6cbe7900ce1013c9de89b2802574b7b24869fc5d7a95d3cc3112c4d27063a'
             '4a8b324aee4cccf3a512ad04ce1a272d14e5b05c8de90feb82075f55ea3845948d817e1b0c6f298f5816834ddd3e5ce0a0e2619866289f3c1ab8fd2f35f04f44'
             '6346b66f54652256571ef65da8e46db49a95ac5978ecd57a507c6b2a28aee70bb3ff87045ac493f54257c9965da1046a28b72cb5abb0087204d257f14b91fd74'
