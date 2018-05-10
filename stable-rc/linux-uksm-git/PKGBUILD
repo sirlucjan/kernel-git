@@ -52,7 +52,7 @@ pkgbase=linux-uksm-git
 # pkgname=('linux-uksm-git' 'linux-uksm-git-headers' 'linux-uksm-git-docs')
 _major=4.16
 _srcname=linux-stable-rc
-pkgver=4.16.7.53.g113b01a62036
+pkgver=4.16.8.0.gdec316ea1828
 pkgrel=1
 arch=('x86_64')
 url="https://github.com/dolohow/uksm"
@@ -64,7 +64,7 @@ _lucjanpath="https://gitlab.com/sirlucjan/kernel-patches/raw/master/${_major}"
 _uksm_path="https://raw.githubusercontent.com/dolohow/uksm/master"
 _uksm_patch="uksm-${_major}.patch"
 _gcc_name="kernel_gcc_patch"
-_gcc_rel='20180507'
+_gcc_rel='20180509'
 _gcc_path="https://github.com/graysky2/kernel_gcc_patch/archive"
 _gcc_patch="enable_additional_cpu_optimizations_for_gcc_v8.1+_kernel_v4.13+.patch"
 
@@ -375,7 +375,7 @@ for _p in ${pkgname[@]}; do
 done
 
 sha512sums=('SKIP'
-            '2b196d2a5a76c50dd8ef604eafebdef41e68751d4854dbd4393d6f75ee42a0def9b0e4f3558b342d18478d0f0ebf3d06d9213b27b0eb1ed7928e6b8944d42ec7'
+            'c53b36f346ceb469d49de796c67cc6eab69a29b8913ac0af0ce3e0a7d7466ee26dabb39e37108c15f9fd0638401ff57067bcbcd09c272aca113ff375573aa1f6'
             'ab962157c2c20faf0bd164a82c2e28ce35fd581d640409ae6419dc2a64c82b7f49e7215149de0bc028dd3d517434160d68127b05137f6b6611641cc871f6c76e'
             '5a2b2154afa7f10ffd50ad23afd2b25b468d655aa01e04fbc6ca54a90c53ded0c37b4d08658b9787a5f414779f1968040e81ccaee3b9355e1a9b7ad5104ed8aa'
             '23d8ecf62b17ccd9acad6405f252b324849119953785f664e73779f25429889d7a6fdcf14cd402b2ff437f09feaec530d1ce356d2d898b4c19d36e43af1a06b3'
