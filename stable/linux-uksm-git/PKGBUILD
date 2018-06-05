@@ -52,7 +52,7 @@ pkgbase=linux-uksm-git
 # pkgname=('linux-uksm-git' 'linux-uksm-git-headers' 'linux-uksm-git-docs')
 _major=4.16
 _srcname=linux-stable
-pkgver=4.16.12.0.ge2a75b6d2e9d
+pkgver=4.16.14.0.g03329bc68158
 pkgrel=1
 arch=('x86_64')
 url="https://github.com/dolohow/uksm"
@@ -71,7 +71,6 @@ _gcc_patch="enable_additional_cpu_optimizations_for_gcc_v8.1+_kernel_v4.13+.patc
 source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git#branch=linux-${_major}.y"
         "${_gcc_name}-${_gcc_rel}.tar.gz::${_gcc_path}/${_gcc_rel}.tar.gz"
         "${_uksm_path}/${_uksm_patch}"
-        "${_lucjanpath}/0005-objtool-add-gcc8-support.patch"
         "${_lucjanpath}/0006-include-linux-add-gcc8-support.patch"
          # the main kernel config files
         'config'
@@ -113,7 +112,6 @@ prepare() {
     
     ### Fix gcc8 bogus warnings
         msg "Fix gcc8 bogus warnings"
-        patch -Np1 -i ../0005-objtool-add-gcc8-support.patch
         patch -Np1 -i ../0006-include-linux-add-gcc8-support.patch
     
     ### Patch source with UKSM
@@ -379,7 +377,6 @@ done
 sha512sums=('SKIP'
             'a0f37a9b8dbd11f8ef4450b06afee0a6e5519cb5a5cd78f84896812b007ef645bcb9c733ae9817c24d1f4a4c2114258015abceb5a94c7e08d2bb00531a6f04c7'
             'ab962157c2c20faf0bd164a82c2e28ce35fd581d640409ae6419dc2a64c82b7f49e7215149de0bc028dd3d517434160d68127b05137f6b6611641cc871f6c76e'
-            'a10a546ecced915ee38075cc6c57eaebb0f8fa58e6af6669d7429ef4880b55bd5782e11dfbda75ce4f805fa5b2399421b4eade8bbbf6766e5aac24a542f1b7a7'
             '9737f30e748e043a1b6ab56bd0df6dc9607b4a2749243e599f5563b157aaf339ad43020a526a11a6fc809cc1abe50ac1cb12188bf5b367f6458fa0dbc2c1824d'
             '90ed39424f82dce6fb5c13c13239463109786fdd0f961fef9b7ad6f90b975e49d712d3a8e67e49b08340caa96a604fc13992eaea4a5f70dc4894f8a1f2ee88cf'
             '7ad5be75ee422dda3b80edd2eb614d8a9181e2c8228cd68b3881e2fb95953bf2dea6cbe7900ce1013c9de89b2802574b7b24869fc5d7a95d3cc3112c4d27063a'
