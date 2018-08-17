@@ -52,7 +52,7 @@ pkgbase=linux-uksm-git
 # pkgname=('linux-uksm-git' 'linux-uksm-git-headers' 'linux-uksm-git-docs')
 _major=4.18
 _srcname=linux-stable-rc
-pkgver=4.18.1.23.g4efaf26b6910
+pkgver=4.18.2.2.gd86e34a614bf
 pkgrel=1
 arch=('x86_64')
 url="https://github.com/dolohow/uksm"
@@ -222,8 +222,7 @@ _package() {
   msg2 "Installing modules..."
   local modulesdir="$pkgdir/usr/lib/modules/$kernver"
   mkdir -p "$modulesdir"
-  # make INSTALL_MOD_PATH="$pkgdir/usr" DEPMOD=/doesnt/exist modules_install
-  make INSTALL_MOD_PATH="${pkgdir}/usr" modules_install
+  make INSTALL_MOD_PATH="$pkgdir/usr" modules_install
 
   # a place for external modules,
   # with version file for building modules and running depmod from hook
@@ -234,9 +233,6 @@ _package() {
 
   # remove build and source links
   rm "$modulesdir"/{source,build}
-
-  msg2 "Running depmod..."
-  depmod -b "$pkgdir/usr" -E Module.symvers -e "$kernver"
 
   msg2 "Installing hooks..."
 
