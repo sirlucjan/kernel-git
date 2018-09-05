@@ -5,6 +5,7 @@
 │   └── linux-uksm-git
 │       ├── 0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
 │       ├── 0002-drm-i915-Increase-LSPCON-timeout.patch
+│       ├── 0003-HID-core-fix-grouping-by-application.patch
 │       ├── 60-linux.hook
 │       ├── 90-linux.hook
 │       ├── 99-linux.hook
@@ -16,6 +17,7 @@
     └── linux-uksm-git
         ├── 0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch
         ├── 0002-drm-i915-Increase-LSPCON-timeout.patch
+        ├── 0003-HID-core-fix-grouping-by-application.patch
         ├── 60-linux.hook
         ├── 90-linux.hook
         ├── 99-linux.hook
@@ -24,4 +26,4 @@
         ├── linux.preset
         └── PKGBUILD
 
-4 directories, 20 files
+4 directories, 22 files
