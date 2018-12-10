@@ -62,17 +62,16 @@ options=('!strip')
 makedepends=('git' 'kmod' 'inetutils' 'bc' 'libelf' 'python-sphinx' 'graphviz')
 #_lucjanpath="https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/${_major}"
 _lucjanpath="https://gitlab.com/sirlucjan/kernel-patches/raw/master/${_major}"
-_uksm_path="https://raw.githubusercontent.com/dolohow/uksm/master"
+_uksm_path="https://raw.githubusercontent.com/sirlucjan/uksm/master"
+#_uksm_path="https://raw.githubusercontent.com/dolohow/uksm/master"
 #_uksm_path="https://raw.githubusercontent.com/zaza42/uksm/master"
-#_uksm_patch="uksm-${_major}.patch"
-_uksm_patch="uksm-4.19.9-rc.patch"
+_uksm_patch="uksm-${_major}.patch"
 _gcc_path="https://raw.githubusercontent.com/graysky2/kernel_gcc_patch/master"
 _gcc_patch="enable_additional_cpu_optimizations_for_gcc_v8.1+_kernel_v4.13+.patch"
 
 source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git#branch=linux-${_major}.y"
         "${_gcc_path}/${_gcc_patch}"
-        #"${_uksm_path}/${_uksm_patch}"
-        "${_lucjanpath}/uksm-lucjan/${_uksm_patch}"
+        "${_uksm_path}/${_uksm_patch}"
          # the main kernel config files
         'config'
          # pacman hook for depmod
