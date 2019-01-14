@@ -24,9 +24,8 @@ _makegconfig=
 _NUMAdisable=y
 
 # Compile ONLY probed modules
-# As of mainline 2.6.32, running with this option will only build the modules
-# that you currently have probed in your system VASTLY reducing the number of
-# modules built and the build time to do it.
+# Build in only the modules that you currently have probed in your system VASTLY
+# reducing the number of modules built and the build time.
 #
 # WARNING - ALL modules must be probed BEFORE you begin making the pkg!
 #
@@ -53,7 +52,7 @@ pkgbase=linux-uksm-git
 # pkgname=('linux-uksm-git' 'linux-uksm-git-headers' 'linux-uksm-git-docs')
 _major=4.20
 _srcname=linux
-pkgver=4.20.1.r0.g8c3f48e8c288
+pkgver=4.20.2.r0.g8aab2b4410a2
 pkgrel=1
 arch=('x86_64')
 url="https://github.com/dolohow/uksm"
