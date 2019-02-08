@@ -5,7 +5,7 @@
 - linux-uksm from "Linux Stable -rc releases"
 
 
-###### linux-uksm incorporates:
+###### linux-uksm-git incorporates:
 
 * [UKSM (sources)](https://github.com/dolohow/uksm) / [UKSM (info)](https://www.usenix.org/sites/default/files/conference/protected-files/fast18_slides_xia.pdf) - resync from dolohow’s github
 
