@@ -52,7 +52,7 @@ pkgbase=linux-uksm-git
 # pkgname=('linux-uksm-git' 'linux-uksm-git-headers' 'linux-uksm-git-docs')
 _major=4.20
 _srcname=linux
-pkgver=4.20.4.r0.g3d4332cd8258
+pkgver=4.20.10.r0.g7f600870eca5
 pkgrel=1
 arch=('x86_64')
 url="https://github.com/dolohow/uksm"
@@ -88,7 +88,7 @@ _kernelname=${pkgbase#linux}
 pkgver() {
   cd "${_srcname}"
 
-  git describe --long --tags | sed -E 's/^v//;s/([^-]*-g)/r\1/;s/-/./g;s/\.rc/rc/'
+  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 prepare() {
