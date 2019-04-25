@@ -52,7 +52,7 @@ pkgbase=linux-uksm-git
 # pkgname=('linux-uksm-git' 'linux-uksm-git-headers' 'linux-uksm-git-docs')
 _major=5.0
 _srcname=linux-stable-rc
-pkgver=5.0.9.r116.g058cd3811b12
+pkgver=5.0.9.r117.ge428bc9cd366
 pkgrel=1
 arch=('x86_64')
 url="https://github.com/dolohow/uksm"
@@ -61,16 +61,19 @@ options=('!strip')
 makedepends=('git' 'kmod' 'inetutils' 'bc' 'libelf')
 #_lucjanpath="https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/${_major}"
 _lucjanpath="https://gitlab.com/sirlucjan/kernel-patches/raw/master/${_major}"
+_uksm_path="https://raw.githubusercontent.com/sirlucjan/uksm/master/v5.x"
 #_uksm_path="https://raw.githubusercontent.com/dolohow/uksm/master/v5.x"
 #_uksm_path="https://raw.githubusercontent.com/zaza42/uksm/master"
 #_uksm_patch="uksm-${_major}.patch"
-_uksm_patch="0001-UKSM-for-5.0.10.patch"
+#_uksm_patch="0001-UKSM-for-5.0.10.patch"
+_uksm_patch="uksm-5.0.10.patch"
 _gcc_path="https://raw.githubusercontent.com/graysky2/kernel_gcc_patch/master"
 _gcc_patch="enable_additional_cpu_optimizations_for_gcc_v8.1+_kernel_v4.13+.patch"
 
 source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git#branch=linux-${_major}.y"
         "${_gcc_path}/${_gcc_patch}"
-        "${_lucjanpath}/uksm-dev/${_uksm_patch}"
+        #"${_lucjanpath}/uksm-dev/${_uksm_patch}"
+        "${_uksm_path}/${_uksm_patch}"
         "${_lucjanpath}/arch-patches/0001-add-sysctl-to-disallow-unprivileged-CLONE_NEWUSER-by.patch"
          # the main kernel config files
         'config'
@@ -373,7 +376,7 @@ done
 
 sha512sums=('SKIP'
             'e62aa377a0acc4f63f394e27a0fb7316583ff1a6a6afdfcc97593ddffd7d2bc224cfd70b552cb3fb9513cf6b8db4c2fd913d21ec2380db8cd642e37d4d67370c'
-            '9e0ba0c5654e418552879f78a2da345d4013deb604a0314affaac9dd01ec571994baa7b5b83a9b8141dbd3cc4c1cbc37f36aec0234ed9a5bc912a73c59ccf1b9'
+            'adf7f7195b0811c13b950b147f24b51874f072c02005ab312f9937dedd9d2356e92dd7537d5603cfaea2e3d1eb0d6872e81af57496d9b42b7f2ec271ec181a77'
             '1e8a1deb7a0100627b928b588a9419b58aa42ac1b33d974b83c24dcd4e5f59ace694959e30df2692a96de329d8bab61cd42bb59578f7814845391203416d7364'
             'e6cae518ab26a15c52a720108b906adc4e08b59973d1b4cdf63d07e86bb06301bb3eb84f7a21596f074b82356c92ab5bef681883dcdae942e843f0093e24e199'
             '7ad5be75ee422dda3b80edd2eb614d8a9181e2c8228cd68b3881e2fb95953bf2dea6cbe7900ce1013c9de89b2802574b7b24869fc5d7a95d3cc3112c4d27063a'
