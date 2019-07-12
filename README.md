@@ -1,9 +1,16 @@
 # Kernels and modules:
 
-- linux-uksm from "Linux kernel stable tree"
+- linux-aufs-git from "Linux kernel stable tree"
  
-- linux-uksm from "Linux Stable -rc releases"
+- linux-aufs-git from "Linux Stable -rc releases"
 
+- linux-uksm-git from "Linux kernel stable tree"
+ 
+- linux-uksm-git from "Linux Stable -rc releases"
+
+###### linux-aufs-git incorporates:
+
+* [AUFS](https://github.com/sfjro/aufs5-standalone) / [AUFS](http://aufs.sourceforge.net) - advanced multi-layered unification filesystem
 
 ###### linux-uksm-git incorporates:
 
