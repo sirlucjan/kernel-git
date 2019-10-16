@@ -49,7 +49,7 @@ pkgbase=linux-uksm-git
 # pkgname=('linux-uksm-git' 'linux-uksm-git-headers' 'linux-uksm-git-docs')
 _major=5.3
 _srcname=linux-stable-rc
-pkgver=5.3.6.r111.gd8fee438c028
+pkgver=5.3.6.r110.g38a3b9f512fa
 pkgrel=1
 arch=('x86_64')
 url="https://github.com/dolohow/uksm"
@@ -67,7 +67,6 @@ _gcc_path="https://raw.githubusercontent.com/graysky2/kernel_gcc_patch/master"
 _gcc_patch="enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v4.13+.patch"
 
 source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git#branch=linux-${_major}.y"
-        "${_lucjanpath}/iouring-patches/0001-Revert-io_uring-only-flush-workqueues-on-fileset-rem.patch"
         "${_uksm_path}/${_uksm_patch}"
         "${_gcc_path}/${_gcc_patch}"
         "${_lucjanpath}/arch-patches-v4-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
@@ -370,7 +369,6 @@ for _p in "${pkgname[@]}"; do
 done
 
 sha512sums=('SKIP'
-            '02efa2ccc7a2bd34265d7e16f4daeeec851a1dcc801f72818d47e1fd93185323409ed76e5a73c774fcb43e8755f32fc6d51ea1815557e39a8afc5c0c799f577f'
             'b0a5fd9934cb3878ea6cb6563443fa83158f97ca1467a31b0269617d93b609ca84fb62cf3c96eadf6659f59a39cf91f71d9f174f7e222eac89aa0d1ae7de42f7'
             '2eb574fbfac6e334d3b06e52e466dbf8e88034515729b6571990b10f75a0fe2a52f188615405c5a695b5820669e595deead44d7961a97c5872359be3435fdf63'
             '6150c1326319028f4e0ea9d7a49bbba3b7feac037dfd170e376b98d431b2959bd0748664cae325da75b0137c1d3e68b8ce3b38fe60fddeec62b7ed062bbba531'
