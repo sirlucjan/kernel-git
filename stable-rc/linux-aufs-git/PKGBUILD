@@ -49,8 +49,8 @@ pkgbase=linux-aufs-git
 # pkgname=('linux-aufs-git' 'linux-aufs-git-headers' 'linux-aufs-git-docs')
 _major=5.3
 _srcname=linux-stable-rc
-pkgver=5.3.5.r149.ge863f125e178
-pkgrel=2
+pkgver=5.3.6.r111.gd8fee438c028
+pkgrel=1
 arch=('x86_64')
 url="https://github.com/sfjro/aufs5-standalone"
 license=('GPL2')
@@ -66,6 +66,7 @@ _gcc_path="https://raw.githubusercontent.com/graysky2/kernel_gcc_patch/master"
 _gcc_patch="enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v4.13+.patch"
 
 source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git#branch=linux-${_major}.y"
+        "${_lucjanpath}/iouring-patches/0001-Revert-io_uring-only-flush-workqueues-on-fileset-rem.patch"
         "${_lucjanpath}/${_aufs_path}/${_aufs_patch}"
         "${_gcc_path}/${_gcc_patch}"
         "${_lucjanpath}/arch-patches-v4-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
@@ -368,6 +369,7 @@ for _p in "${pkgname[@]}"; do
 done
 
 sha512sums=('SKIP'
+            '02efa2ccc7a2bd34265d7e16f4daeeec851a1dcc801f72818d47e1fd93185323409ed76e5a73c774fcb43e8755f32fc6d51ea1815557e39a8afc5c0c799f577f'
             '7cfffe830c491d7c1c60af5abea72efe9baf19700bf6b425b751d2e13c2c159ad0c940d5edebe0a17eca2569fbd7f60327e29f83f809446e8ebff5a183a78a4b'
             '2eb574fbfac6e334d3b06e52e466dbf8e88034515729b6571990b10f75a0fe2a52f188615405c5a695b5820669e595deead44d7961a97c5872359be3435fdf63'
             '6150c1326319028f4e0ea9d7a49bbba3b7feac037dfd170e376b98d431b2959bd0748664cae325da75b0137c1d3e68b8ce3b38fe60fddeec62b7ed062bbba531'
