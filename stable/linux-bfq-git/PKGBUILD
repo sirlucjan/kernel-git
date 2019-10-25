@@ -50,7 +50,7 @@ pkgbase=linux-bfq-git
 _major=5.3
 _srcname=linux
 pkgver=5.3.7.r0.g83f4462ce155
-pkgrel=1
+pkgrel=2
 arch=('x86_64')
 url="https://github.com/sirlucjan/bfq-mq-lucjan"
 license=('GPL2')
@@ -87,6 +87,10 @@ source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git#branch=l
 
 _kernelname=${pkgbase#linux}
 : ${_kernelname:=-bfq-git}
+
+export KBUILD_BUILD_HOST=archlinux
+export KBUILD_BUILD_USER=$pkgbase
+export KBUILD_BUILD_TIMESTAMP="@${SOURCE_DATE_EPOCH:-$(date +%s)}"
 
 pkgver() {
   cd $_srcname
