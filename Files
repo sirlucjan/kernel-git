@@ -3,12 +3,7 @@
 ├── README.md
 ├── stable
 │   ├── linux-aufs-git
-│   │   ├── 60-linux.hook
-│   │   ├── 90-linux.hook
-│   │   ├── 99-linux.hook
 │   │   ├── config
-│   │   ├── linux.install
-│   │   ├── linux.preset
 │   │   └── PKGBUILD
 │   ├── linux-bfq-git
 │   │   ├── 60-linux.hook
@@ -52,4 +47,4 @@
         ├── linux.preset
         └── PKGBUILD
 
-8 directories, 44 files
+8 directories, 39 files
