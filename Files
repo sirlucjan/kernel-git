@@ -19,12 +19,7 @@
     │   ├── config
     │   └── PKGBUILD
     └── linux-uksm-git
-        ├── 60-linux.hook
-        ├── 90-linux.hook
-        ├── 99-linux.hook
         ├── config
-        ├── linux.install
-        ├── linux.preset
         └── PKGBUILD
 
-8 directories, 19 files
+8 directories, 14 files
