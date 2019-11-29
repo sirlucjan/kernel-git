@@ -66,7 +66,7 @@ _aufs_patch="0001-aufs-${_aufs_ver}.patch"
 _gcc_path="https://raw.githubusercontent.com/graysky2/kernel_gcc_patch/master"
 _gcc_patch="enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v4.13+.patch"
 
-source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git#branch=linux-${_major}.y"
+source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/${_srcname}.git#branch=linux-${_major}.y"
         "${_lucjanpath}/${_aufs_path}/${_aufs_patch}"
         "${_gcc_path}/${_gcc_patch}"
         "${_lucjanpath}/arch-patches-v4-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
