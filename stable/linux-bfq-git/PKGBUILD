@@ -169,19 +169,15 @@ prepare() {
         fi
 
     ### Running make nconfig
-	
 	[[ -z "$_makenconfig" ]] ||  make nconfig
-	
+
     ### Running make menuconfig
-	
 	[[ -z "$_makemenuconfig" ]] || make menuconfig
-	
+
     ### Running make xconfig
-	
 	[[ -z "$_makexconfig" ]] || make xconfig
-	
+
     ### Running make gconfig
-	
 	[[ -z "$_makegconfig" ]] || make gconfig
 
     ### Save configuration for later reuse
