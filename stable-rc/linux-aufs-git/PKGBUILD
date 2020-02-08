@@ -49,8 +49,8 @@ pkgbase=linux-aufs-git
 # pkgname=('linux-aufs-git' 'linux-aufs-git-headers' 'linux-aufs-git-docs')
 _major=5.5
 _srcname=linux-stable-rc
-pkgver=5.5.2.r0.g567f0ad8b0b7
-pkgrel=3
+pkgver=5.5.2.r154.g829d9cd3098f
+pkgrel=0
 pkgdesc='Linux AUFS'
 arch=('x86_64')
 url="https://github.com/sfjro/aufs5-standalone"
@@ -69,11 +69,10 @@ _gcc_patch="enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v5.5+.patch
 source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/${_srcname}.git#branch=linux-${_major}.y"
         "${_lucjanpath}/${_aufs_path}/${_aufs_patch}"
         "${_gcc_path}/${_gcc_patch}"
-        "${_lucjanpath}/arch-patches-v6-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
-        "${_lucjanpath}/arch-patches-v6-sep/0002-iwlwifi-pcie-restore-support-for-Killer-Qu-C0-NICs.patch"
-        "${_lucjanpath}/arch-patches-v6-sep/0003-ALSA-hda-Fix-DP-MST-support-for-NVIDIA-codecs.patch"
-        "${_lucjanpath}/arch-patches-v6-sep/0004-Btrfs-send-fix-emission-of-invalid-clone-operations-.patch"
-        "${_lucjanpath}/arch-patches-v6-sep/0005-iwlwifi-mvm-Do-not-require-PHY_SKU-NVM-section-for-3.patch"
+        "${_lucjanpath}/arch-patches-v8-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
+        "${_lucjanpath}/arch-patches-v8-sep/0002-iwlwifi-pcie-restore-support-for-Killer-Qu-C0-NICs.patch"
+        "${_lucjanpath}/arch-patches-v8-sep/0003-Btrfs-send-fix-emission-of-invalid-clone-operations-.patch"
+        "${_lucjanpath}/arch-patches-v8-sep/0004-iwlwifi-mvm-Do-not-require-PHY_SKU-NVM-section-for-3.patch"
          # the main kernel config files
         'config')
 
@@ -331,9 +330,8 @@ done
 sha512sums=('SKIP'
             '487c062cf2d0e12faa2797547b25bd0a6cfca7e0df1bf8b7e9f23ca253477aff0f889467e6223dd1992ea322034ede09929e67a03317fad457d908aac8ebac14'
             '52b14ef834769d2b4567e756a4485995acd2e3f5b989cbb53f9b113b42ff67b736bbcb284b95fe15c9efb846fd12320a26a131e4ce9af50b521114d274b472f1'
-            '880998f75fde2d17799b4ae3477e4397f3c3ba2ac1feb5a87011c06683f207a506c61e77207ae663b21f78ec73cd81a53e1513f5a78cb4502d8ae95d50decab6'
-            'd0298b9b5d9506ad72ee8ce4268f3083523d5a6928fd83c1ee3d571cee3c1ddcaf50af72efaee481ba4f00079df4dccb9a2c67a60b94d2f87a01d943561a42da'
-            '21ed7bc278e2d1fc80f11d8a24501a80e6bc3a8f3ddbc1c8363100ee2576fc86f9fc1148a83eb71a906be4c3fd8291fa57f75d7fc3bb07e686d9bddf879e6964'
-            'b104d2d6c8ce922c079e5f019267bcd0507d5b0d6347b98659e06538e183e5359cf85184464dbe7bea8e1ac2144bb60f0e08e524cd73af9b9e5aa0c3eae7b9ed'
-            '92065c8ba270a62a8b97f021e5aee898faebd13e07bc49f0ab308421aa656fca9ef019f3a2bed00e0af0d15f28ffad2969b46bf36980b86a983000b962687662'
+            'b2a7f5a6858530085640203236cb9eb1c662ed262874b95bba2ef57943c89520a9d582dc2bae6e5902993c42ce7dcf331d64ca68c5fce9f5389b4bd5a7461b0d'
+            '182b2accaf1d1f9fbe9aaa999a1a68a8e891d7f5c613191722089e0b3c3a48ced5dccda0da8a658f7cfef30382ca071c160944e55d057851984dc99aa84bc5d9'
+            '64c4d7b83e14b2ec3c72f3c9c2bb78bbf04f6dcd5ba5cce975a6a12ce9496b44aaa377eb28f908de8fc032f24f536b7565c6388d8bf64a6c50880e9fa362c1a4'
+            '493bbc988295e29d4c97666f8e97a57e02914b04c29468b841423c3f86963ab78410fe671660e4a40fdf735aee8ee6b3d700f34de4b4ff3f39f3649fd0394ee9'
             '603e6e3d8301a3b2f4623d4001535782fdea8a314efd85aa419a75c9bc5446368f70d56b857ff32f9ef584b17594bd9d291f728e5d4099180e550e5d5854d499')
