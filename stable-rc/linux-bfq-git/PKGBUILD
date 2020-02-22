@@ -50,7 +50,7 @@ pkgbase=linux-bfq-git
 _major=5.5
 _srcname=linux-stable-rc
 pkgver=5.5.5.r400.g84fa24740caa
-pkgrel=2
+pkgrel=3
 pkgdesc='Linux BFQ-dev'
 arch=('x86_64')
 url="https://github.com/sirlucjan/bfq-mq-lucjan"
@@ -198,7 +198,8 @@ prepare() {
 build() {
   cd $_srcname
 
-  make bzImage modules htmldocs
+  make all
+  make htmldocs
 }
 
 _package() {
