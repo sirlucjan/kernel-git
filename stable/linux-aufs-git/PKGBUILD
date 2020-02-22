@@ -50,7 +50,7 @@ pkgbase=linux-aufs-git
 _major=5.5
 _srcname=linux
 pkgver=5.5.5.r0.ge36d2b2f21eb
-pkgrel=2
+pkgrel=3
 pkgdesc='Linux AUFS'
 arch=('x86_64')
 url="https://github.com/sfjro/aufs5-standalone"
@@ -194,7 +194,8 @@ prepare() {
 build() {
   cd $_srcname
 
-  make bzImage modules htmldocs
+  make all
+  make htmldocs
 }
 
 _package() {
