@@ -19,7 +19,7 @@
     │   ├── config
     │   ├── PKGBUILD
     │   └── sphinx-workaround.patch
-    ├── linux-bfq-git
+    ├── linux-bfq-dev-git
     │   ├── config
     │   ├── PKGBUILD
     │   └── sphinx-workaround.patch
