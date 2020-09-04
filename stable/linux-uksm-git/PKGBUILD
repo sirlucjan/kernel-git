@@ -49,8 +49,8 @@ pkgbase=linux-uksm-git
 # pkgname=('linux-uksm-git' 'linux-uksm-git-headers' 'linux-uksm-git-docs')
 _major=5.8
 _srcname=linux
-pkgver=5.8.5.r0.g9ece50d8a470
-pkgrel=1
+pkgver=5.8.6.r0.g66534fe2b940
+pkgrel=2
 pkgdesc='Linux UKSM'
 arch=('x86_64')
 url="https://github.com/dolohow/uksm"
@@ -329,4 +329,4 @@ sha512sums=('SKIP'
             'd4bf28aade6156d0ecce47f3872bde11c50cf41142f36154d8bb96e86e06e25aaceaa5b100514d2f31a08fb56bbf3d5a586d8202fd1d3a272fd2dc5f1d0bd591'
             'a65585dae67910c788a66f0bb478a801b7deac05aed5a5100b0f0be951f7e97d5489c9b265d9d16dccf57030788b92d13328b11a5f5e8f82cb532954682361be'
             '98e97155f86bbe837d43f27ec1018b5b6fdc6c372d6f7f2a0fe29da117d53979d9f9c262f886850d92002898682781029b80d4ee923633fc068f979e6c8254be'
-            '4ec29d9374cb98267052945e0855d86d98fc541e79649543e511cc7378a31c01129a64bd227b3427ba38495a47de33d8c219d27d113ac41d984b1ed9120703c1')
+            '1fb2d99cf9c82637d05a5a0e591675f2c3b9e7530878bc581114fa5592fbb44752a71b473823b2c377c383e9444226c627de3919f831d5cb2ee6c49cca85f2a1')
