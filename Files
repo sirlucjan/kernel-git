@@ -7,8 +7,7 @@
 │   │   └── PKGBUILD
 │   ├── linux-bfq-dev-git
 │   │   ├── config
-│   │   ├── PKGBUILD
-│   │   └── sphinx-workaround.patch
+│   │   └── PKGBUILD
 │   └── linux-uksm-git
 │       ├── config
 │       ├── PKGBUILD
@@ -27,4 +26,4 @@
         ├── PKGBUILD
         └── sphinx-workaround.patch
 
-8 directories, 19 files
+8 directories, 18 files
