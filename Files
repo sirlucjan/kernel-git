@@ -20,7 +20,6 @@
     │   └── PKGBUILD
     └── linux-uksm-git
         ├── config
-        ├── PKGBUILD
-        └── sphinx-workaround.patch
+        └── PKGBUILD
 
-8 directories, 15 files
+8 directories, 14 files
