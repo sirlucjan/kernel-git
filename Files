@@ -14,8 +14,7 @@
 └── stable-rc
     ├── linux-aufs-git
     │   ├── config
-    │   ├── PKGBUILD
-    │   └── sphinx-workaround.patch
+    │   └── PKGBUILD
     ├── linux-bfq-dev-git
     │   ├── config
     │   ├── PKGBUILD
@@ -25,4 +24,4 @@
         ├── PKGBUILD
         └── sphinx-workaround.patch
 
-8 directories, 17 files
+8 directories, 16 files
