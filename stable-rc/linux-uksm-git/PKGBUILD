@@ -49,7 +49,7 @@ pkgbase=linux-uksm-git
 # pkgname=('linux-uksm-git' 'linux-uksm-git-headers' 'linux-uksm-git-docs')
 _major=5.9
 _srcname=linux-stable-rc
-pkgver=5.9.1.r29.gf4abe3a710d1
+pkgver=5.9.1.r758.ge0fc09529493
 pkgrel=0
 pkgdesc='Linux UKSM'
 arch=('x86_64')
@@ -70,8 +70,7 @@ _gcc_patch="0001-cpu-${_major}-merge-graysky-s-patchset.patch"
 source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/${_srcname}.git#branch=linux-${_major}.y"
         "${_lucjanpath}/${_uksm_path}/${_uksm_patch}"
         "${_lucjanpath}/${_gcc_path}/${_gcc_patch}"
-        "${_lucjanpath}/arch-patches-v2-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
-        "${_lucjanpath}/arch-patches-v2-sep/0002-i2c-core-Restore-acpi_walk_dep_device_list-getting-c.patch"
+        "${_lucjanpath}/arch-patches-v3/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
         "${_lucjanpath}/docs-patches/0001-Documentation-Fix-sphinx-3.0-causes-compilation-erro.patch"
          # the main kernel config files
         'config')
@@ -317,7 +316,6 @@ done
 sha512sums=('SKIP'
             'fa79b1abfb94693e2dfcc9348e508e8d35103f5c1e57fc74f28eeee5b237c692994aee94567431976bd4bff9ac5964306194c0970ac8c72a2e9ddf47c0510523'
             '96427eecb0078ce57a40ef4ee78d3576216f27390ba6b9dfbb851f4d969558a82b698cc633217ad8f6b9d991e7eaebd613ed4bd5741cafe7fa40b2502dacd43a'
-            '82601180156862d6652d023ff9f80776a5dab67f1c46c3b27e177245fd7e12c9f8c4597990925940e215ddd673c24c1cfd1e5ef1ca69762c2cc5724d11133e55'
-            '9646cf65b2dd6b16d0df3c74e43eacfbc1fdc8ab241fe698a1f0762497ccc612df01b019cdf82430cca28bf843f91ba784c8bdfb7eb204330b7c73154ef6dda1'
+            '1692618ab047cc0b5e4b489a1bfeeb3f65e2f72f0990f7f85c8ab6eb135315fb1f87a12a9108189b5710fafe0394e9c596f2c5d846d2f158335c8f270bbd02a3'
             'b1abc4b21191c841326db341aeea6eac9918a4628f38e32f616a8eeeb9919395656fc4b805110dce93aa38188172fb672831fd76e848b3711fcd6ea9115118c6'
             '05fa26eb7ae135bbe4fdf6675d4eef95dbdf7a763a1ccc03313b8225143d9a20494f117eb2dd32a3f49c99c93b4e5d6cb47fddcaf39eebdff1528bcc11e4c047')
