@@ -80,6 +80,14 @@ makepkg -srci
 
 ```
 
+# Rolling
+
+```
+cd /some_path/kernel-git/rolling/package_name
+makepkg -srci
+
+```
+
 # Enable bfq
 
 ~~For now, you can use `sudo tee /sys/block/sda/queue/scheduler <<< bfq` to enable "bfq".~~
