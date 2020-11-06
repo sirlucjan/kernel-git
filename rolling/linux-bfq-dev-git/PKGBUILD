@@ -1,0 +1,338 @@
+# Maintainer: Piotr Gorski <lucjan.lucjanov@gmail.com>
+# Contributor: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
+# Contributor: Tobias Powalowski <tpowa@archlinux.org>
+# Contributor: Thomas Baechler <thomas@archlinux.org>
+
+### BUILD OPTIONS
+# Set these variables to ANYTHING that is not null to enable them
+
+### Tweak kernel options prior to a build via nconfig
+_makenconfig=
+
+### Tweak kernel options prior to a build via menuconfig
+_makemenuconfig=
+
+### Tweak kernel options prior to a build via xconfig
+_makexconfig=
+
+### Tweak kernel options prior to a build via gconfig
+_makegconfig=
+
+# NUMA is optimized for multi-socket motherboards.
+# A single multi-core CPU actually runs slower with NUMA enabled.
+# See, https://bugs.archlinux.org/task/31187
+_NUMAdisable=y
+
+# Compile ONLY used modules to VASTLYreduce the number of modules built
+# and the build time.
+#
+# To keep track of which modules are needed for your specific system/hardware,
+# give module_db script a try: https://aur.archlinux.org/packages/modprobed-db
+# This PKGBUILD read the database kept if it exists
+#
+# More at this wiki page ---> https://wiki.archlinux.org/index.php/Modprobed-db
+_localmodcfg=
+
+# Use the current kernel's .config file
+# Enabling this option will use the .config of the RUNNING kernel rather than
+# the ARCH defaults. Useful when the package gets updated and you already went
+# through the trouble of customizing your config options.  NOT recommended when
+# a new kernel is released, but again, convenient for package bumps.
+_use_current=
+
+### Running with a 1000 HZ tick rate
+_1k_HZ_ticks=
+
+### Do not edit below this line unless you know what you're doing
+
+pkgbase=linux-bfq-dev-git
+# pkgname=('linux-bfq-dev-git' 'linux-bfq-dev-git-headers' 'linux-bfq-dev-git-docs')
+_major=5.9
+_srcname=linux
+pkgver=5.9.6.r7131.g6638a94364ed
+pkgrel=1
+pkgdesc='Linux BFQ-dev'
+arch=('x86_64')
+url="https://github.com/sirlucjan/bfq-mq-lucjan"
+license=('GPL2')
+options=('!strip')
+makedepends=('kmod' 'bc' 'libelf' 'git' 'python-sphinx' 'python-sphinx_rtd_theme'
+             'graphviz' 'imagemagick' 'pahole')
+#_lucjanpath="https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/${_major}"
+_lucjanpath="https://gitlab.com/sirlucjan/kernel-patches/raw/master/${_major}"
+# Some patches for BFQ conflict with patches for BFQ-dev.
+# To use linux-bfq-dev-git smoothly apply bfq-reverts before bfq-dev patch.
+# Otherwise the kernel will not compile.
+_bfq_rev_path="bfq-reverts-all"
+_bfq_rev_patch="0001-bfq-reverts.patch"
+_bfq_path="bfq-dev-lucjan"
+_bfq_ver="v13"
+_bfq_rel="r2K201012"
+_bfq_patch="${_major}-${_bfq_path}-${_bfq_ver}-${_bfq_rel}.patch"
+_gcc_path="cpu-patches-sep"
+_gcc_patch="0001-cpu-${_major}-merge-graysky-s-patchset.patch"
+
+source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/${_srcname}.git#branch=linux-rolling-stable"
+        "${_lucjanpath}/${_bfq_rev_path}/${_bfq_rev_patch}"
+        "${_lucjanpath}/${_bfq_path}/${_bfq_patch}"
+        "${_lucjanpath}/${_gcc_path}/${_gcc_patch}"
+        "${_lucjanpath}/arch-patches-v4-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
+        "${_lucjanpath}/arch-patches-v4-sep/0002-mac80211-fix-regression-where-EAPOL-frames-were-sent.patch"
+        "${_lucjanpath}/docs-patches/0001-Documentation-Fix-sphinx-3.0-causes-compilation-erro.patch"
+         # the main kernel config files
+        'config')
+
+export KBUILD_BUILD_HOST=archlinux
+export KBUILD_BUILD_USER=$pkgbase
+export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH})"
+
+pkgver() {
+  cd $_srcname
+
+  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+prepare() {
+    cd $_srcname
+
+    ### Setting version
+        echo "Setting version..."
+        sed -e "/^EXTRAVERSION =/s/=.*/=/" -i Makefile
+        scripts/setlocalversion --save-scmversion
+        echo "-$pkgrel" > localversion.10-pkgrel
+        echo "${pkgbase#linux}" > localversion.20-pkgname
+
+    ### Patching sources
+        local src
+        for src in "${source[@]}"; do
+            src="${src%%::*}"
+            src="${src##*/}"
+            [[ $src = *.patch ]] || continue
+        echo "Applying patch $src..."
+        patch -Np1 < "../$src"
+        done
+
+    ### Setting config
+        echo "Setting config..."
+        cp ../config .config
+        make olddefconfig
+
+    ### Prepared version
+        make -s kernelrelease > version
+        echo "Prepared $pkgbase version $(<version)"
+
+    ### Optionally use running kernel's config
+	# code originally by nous; http://aur.archlinux.org/packages.php?ID=40191
+	if [ -n "$_use_current" ]; then
+		if [[ -s /proc/config.gz ]]; then
+			echo "Extracting config from /proc/config.gz..."
+			# modprobe configs
+			zcat /proc/config.gz > ./.config
+		else
+			warning "Your kernel was not compiled with IKCONFIG_PROC!"
+			warning "You cannot read the current config!"
+			warning "Aborting!"
+			exit
+		fi
+	fi
+
+    ### Optionally set tickrate to 1000
+	if [ -n "$_1k_HZ_ticks" ]; then
+		echo "Setting tick rate to 1k..."
+                scripts/config --disable CONFIG_HZ_300
+                scripts/config --enable CONFIG_HZ_1000
+                scripts/config --set-val CONFIG_HZ 1000
+	fi
+
+    ### Optionally disable NUMA for 64-bit kernels only
+        # (x86 kernels do not support NUMA)
+        if [ -n "$_NUMAdisable" ]; then
+            echo "Disabling NUMA from kernel config..."
+            scripts/config --disable CONFIG_NUMA
+        fi
+
+    ### Optionally load needed modules for the make localmodconfig
+        # See https://aur.archlinux.org/packages/modprobed-db
+        if [ -n "$_localmodcfg" ]; then
+            if [ -f $HOME/.config/modprobed.db ]; then
+            echo "Running Steven Rostedt's make localmodconfig now"
+            make LSMOD=$HOME/.config/modprobed.db localmodconfig
+        else
+            echo "No modprobed.db data found"
+            exit
+            fi
+        fi
+
+    ### Running make nconfig
+	[[ -z "$_makenconfig" ]] ||  make nconfig
+
+    ### Running make menuconfig
+	[[ -z "$_makemenuconfig" ]] || make menuconfig
+
+    ### Running make xconfig
+	[[ -z "$_makexconfig" ]] || make xconfig
+
+    ### Running make gconfig
+	[[ -z "$_makegconfig" ]] || make gconfig
+
+    ### Save configuration for later reuse
+	cat .config > "${startdir}/config.last"
+}
+
+build() {
+  cd $_srcname
+
+  make all
+  make htmldocs
+}
+
+_package() {
+    pkgdesc="The $pkgdesc kernel and modules"
+    depends=('coreutils' 'kmod' 'initramfs')
+    optdepends=('crda: to set the correct wireless channels of your country'
+                'linux-firmware: firmware images needed for some devices'
+                'modprobed-db: Keeps track of EVERY kernel module that has ever been probed - useful for those of us who make localmodconfig')
+    provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE linux-bfq-git)
+    replaces=('linux-bfq-git')
+    conflicts=('linux-bfq-git')
+
+  cd $_srcname
+  local kernver="$(<version)"
+  local modulesdir="$pkgdir/usr/lib/modules/$kernver"
+
+  echo "Installing boot image..."
+  # systemd expects to find the kernel here to allow hibernation
+  # https://github.com/systemd/systemd/commit/edda44605f06a41fb86b7ab8128dcf99161d2344
+  install -Dm644 "$(make -s image_name)" "$modulesdir/vmlinuz"
+
+  # Used by mkinitcpio to name the kernel
+  echo "$pkgbase" | install -Dm644 /dev/stdin "$modulesdir/pkgbase"
+
+  echo "Installing modules..."
+  make INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 modules_install
+
+  # remove build and source links
+  rm "$modulesdir"/{source,build}
+}
+
+_package-headers() {
+    pkgdesc="Headers and scripts for building modules for the $pkgdesc kernel"
+    depends=('linux-bfq-dev-git')
+    replaces=('linux-bfq-git-headers')
+    conflicts=('linux-bfq-git-headers')
+    provides=('linux-bfq-git-headers')
+
+  cd $_srcname
+  local builddir="$pkgdir/usr/lib/modules/$(<version)/build"
+
+  echo "Installing build files..."
+  install -Dt "$builddir" -m644 .config Makefile Module.symvers System.map \
+    localversion.* version vmlinux
+  install -Dt "$builddir/kernel" -m644 kernel/Makefile
+  install -Dt "$builddir/arch/x86" -m644 arch/x86/Makefile
+  cp -t "$builddir" -a scripts
+
+  # add objtool for external module building and enabled VALIDATION_STACK option
+  install -Dt "$builddir/tools/objtool" tools/objtool/objtool
+
+  # add xfs and shmem for aufs building
+  mkdir -p "$builddir"/{fs/xfs,mm}
+
+  echo "Installing headers..."
+  cp -t "$builddir" -a include
+  cp -t "$builddir/arch/x86" -a arch/x86/include
+  install -Dt "$builddir/arch/x86/kernel" -m644 arch/x86/kernel/asm-offsets.s
+
+  install -Dt "$builddir/drivers/md" -m644 drivers/md/*.h
+  install -Dt "$builddir/net/mac80211" -m644 net/mac80211/*.h
+
+  # http://bugs.archlinux.org/task/13146
+  install -Dt "$builddir/drivers/media/i2c" -m644 drivers/media/i2c/msp3400-driver.h
+
+  # http://bugs.archlinux.org/task/20402
+  install -Dt "$builddir/drivers/media/usb/dvb-usb" -m644 drivers/media/usb/dvb-usb/*.h
+  install -Dt "$builddir/drivers/media/dvb-frontends" -m644 drivers/media/dvb-frontends/*.h
+  install -Dt "$builddir/drivers/media/tuners" -m644 drivers/media/tuners/*.h
+
+  echo "Installing KConfig files..."
+  find . -name 'Kconfig*' -exec install -Dm644 {} "$builddir/{}" \;
+
+  echo "Removing unneeded architectures..."
+  local arch
+  for arch in "$builddir"/arch/*/; do
+    [[ $arch = */x86/ ]] && continue
+    echo "Removing $(basename "$arch")"
+    rm -r "$arch"
+  done
+
+  echo "Removing documentation..."
+  rm -r "$builddir/Documentation"
+
+  echo "Removing broken symlinks..."
+  find -L "$builddir" -type l -printf 'Removing %P\n' -delete
+
+  echo "Removing loose objects..."
+  find "$builddir" -type f -name '*.o' -printf 'Removing %P\n' -delete
+
+  echo "Stripping build tools..."
+  local file
+  while read -rd '' file; do
+    case "$(file -bi "$file")" in
+      application/x-sharedlib\;*)      # Libraries (.so)
+        strip -v $STRIP_SHARED "$file" ;;
+      application/x-archive\;*)        # Libraries (.a)
+        strip -v $STRIP_STATIC "$file" ;;
+      application/x-executable\;*)     # Binaries
+        strip -v $STRIP_BINARIES "$file" ;;
+      application/x-pie-executable\;*) # Relocatable binaries
+        strip -v $STRIP_SHARED "$file" ;;
+    esac
+  done < <(find "$builddir" -type f -perm -u+x ! -name vmlinux -print0)
+
+  echo "Stripping vmlinux..."
+  strip -v $STRIP_STATIC "$builddir/vmlinux"
+
+  echo "Adding symlink..."
+  mkdir -p "$pkgdir/usr/src"
+  ln -sr "$builddir" "$pkgdir/usr/src/$pkgbase"
+}
+
+_package-docs() {
+    pkgdesc="Documentation for the $pkgdesc kernel"
+    depends=('linux-bfq-dev-git')
+    replaces=('linux-bfq-git-docs')
+    conflicts=('linux-bfq-git-docs')
+    provides=('linux-bfq-git-docs')
+
+  cd $_srcname
+  local builddir="$pkgdir/usr/lib/modules/$(<version)/build"
+
+  echo "Installing documentation..."
+  local src dst
+  while read -rd '' src; do
+    dst="${src#Documentation/}"
+    dst="$builddir/Documentation/${dst#output/}"
+    install -Dm644 "$src" "$dst"
+  done < <(find Documentation -name '.*' -prune -o ! -type d -print0)
+
+  echo "Adding symlink..."
+  mkdir -p "$pkgdir/usr/share/doc"
+  ln -sr "$builddir/Documentation" "$pkgdir/usr/share/doc/$pkgbase"
+}
+
+pkgname=("$pkgbase" "$pkgbase-headers" "$pkgbase-docs")
+for _p in "${pkgname[@]}"; do
+  eval "package_$_p() {
+    $(declare -f "_package${_p#$pkgbase}")
+    _package${_p#$pkgbase}
+  }"
+done
+
+sha512sums=('SKIP'
+            '7d30c34e75c2800d93c01e34ca23a00cda24d2f44bb837a48f6789c50ad69f7db4cc93d1fc75e43cfa4d4f4e9c612330dd595c56c13f8abb5d062338ea30697c'
+            'cf634a9e0298adf1d05b7a8048ba2f89d4b8490cf48f1ab493cb40473116f360035b7fb3d8a54af980b1a49a1ad4dcfbc4ca69de8543b8bdf0a1d586908bd093'
+            '96427eecb0078ce57a40ef4ee78d3576216f27390ba6b9dfbb851f4d969558a82b698cc633217ad8f6b9d991e7eaebd613ed4bd5741cafe7fa40b2502dacd43a'
+            '6f315551225e7d31595bfc6ff2cc0ea46d88c1d0c54024ee29da04c0d2573865d68b78bf2e9bf545e41f3231933bbe08b694d564af857ba5053ee467b6a48cb2'
+            '465fb40b6574cb6a64f2975998ccb13047c424553d7ac80ed46b2d8371657a4f3003efc81ec5227e2f09724e08599443cb4b3cd1018d889631e1a215891f10c8'
+            'b1abc4b21191c841326db341aeea6eac9918a4628f38e32f616a8eeeb9919395656fc4b805110dce93aa38188172fb672831fd76e848b3711fcd6ea9115118c6'
+            '0704f58ac0f4d07133408a8165247b2495fe5c74b446a7d1f4011665d03c1be6eb7f94a643438bde1bb749f109e5eb8cdbe8934b278de4373a81d6311e6ad716')
