@@ -16,11 +16,11 @@
 
 [![Packaging status](https://repology.org/badge/vertical-allrepos/linux-uksm.svg)](https://repology.org/project/linux-uksm/versions)
 
-###### linux-aufs incorporates:
+###### linux-aufs-git incorporates:
 
 * [AUFS](https://github.com/sfjro/aufs5-standalone/tree/aufs5.7) / [AUFS](http://aufs.sourceforge.net) - advanced multi-layered unification filesystem
 
-###### linux-bfq-dev incorporates:
+###### linux-bfq-dev-git incorporates:
 
 * [bfq improvements](https://groups.google.com/forum/#!forum/bfq-iosched) - latest fixes authored by Paolo Valente and BFQ Team
 
@@ -40,7 +40,7 @@
 
 * [bfq-reverts](https://github.com/sirlucjan/kernel-patches/tree/master/5.10/bfq-reverts-all) / [bfq-reverts](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.10/bfq-reverts-all) - specific patches authored by Piotr Gorski
 
-###### linux-uksm incorporates:
+###### linux-uksm-git incorporates:
 
 * [UKSM (sources)](https://github.com/dolohow/uksm) / [UKSM (info)](https://www.usenix.org/sites/default/files/conference/protected-files/fast18_slides_xia.pdf) - resync from dolohow’s github
 
