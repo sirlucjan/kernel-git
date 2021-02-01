@@ -49,7 +49,7 @@ pkgbase=linux-aufs-git
 # pkgname=('linux-aufs-git' 'linux-aufs-git-headers' 'linux-aufs-git-docs')
 _major=5.10
 _srcname=linux-stable-rc
-pkgver=5.10.11.r33.g324e71045b28
+pkgver=5.10.12.r55.gb861eb6a4c4a
 pkgrel=1
 pkgdesc='Linux AUFS'
 arch=('x86_64')
@@ -69,9 +69,8 @@ _gcc_patch="0001-cpu-${_major}-merge-graysky-s-patchset.patch"
 source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/${_srcname}.git#branch=linux-${_major}.y"
         "${_lucjanpath}/${_aufs_path}/${_aufs_patch}"
         "${_lucjanpath}/${_gcc_path}/${_gcc_patch}"
-        "${_lucjanpath}/arch-patches-v12-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
-        "${_lucjanpath}/arch-patches-v12-sep/0002-HID-quirks-Add-Apple-Magic-Trackpad-2-to-hid_have_sp.patch"
-        "${_lucjanpath}/arch-patches-v12-sep/0003-iwlwifi-Fix-regression-from-UDP-segmentation-support.patch"
+        "${_lucjanpath}/arch-patches-v14-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
+        "${_lucjanpath}/arch-patches-v14-sep/0002-HID-quirks-Add-Apple-Magic-Trackpad-2-to-hid_have_sp.patch"
          # the main kernel config files
         'config')
 
@@ -316,7 +315,6 @@ done
 sha512sums=('SKIP'
             '56a83c44db0c488e6377bb99baf15604fb5d6b6423e63bd68b4681937ebfaafc5c37a378f05946d2bf9c578a44f18bf70b6f22fed5266d2b7cf7565981c897af'
             '34e21ecc4ef0d07707283427fa82d561a9573d670e80ccd41f7d9cb595473b3844b8df7aeffcb4fe82d9deeef0a4d4e6aef663eb1a7a397fa181f06f418a0d6d'
-            'f13f34833ab5c7c2239c94e1a6a491db450e8db09a124a2dbd99a7ec613e7e894a76d649b69915a7c4550c193ddf60c1fb762c5a16e9047602fba768d4b412da'
-            '57b805336e6bfad046c341426b7186ab055fcb146b6dc9c5e36ce36e011528e8e239bed4f654372fddfbdd44ce95d7332d574e1ac38b7cabb0aa0acff522a1fa'
-            'c0162404599999d9bbc5916ac51946ac34c786f1190ae802addef017b1fa8cc3315af56d4fa29e5b63d8fc74fc53a5b6a6b6eb51984864d5f54d3b563d49e903'
+            'eb12bca374c8709d7e98730a01b406c18c0438983ac0f65c788fa58de6bb3d1558a673f5bb75a594967b71079fb15a29176ef9db2971f42b40c2696c4870e4a7'
+            '6a222febcc5a3249fb961320ea6aceccacb94dc0727741c9363054f95b89f5c5cbdf6d25ca8ef3e5eba014e7e1ec403cfe7ba1a380952c362a72f31341e71ff1'
             'b23c7affe7a100a30aa31d63d9c50e13e661e06c53dd6fb6ace60395eda4efdbe7383d19317ca6eb4be936cb4d65b82115bb22f6308e1b6fb8ce8df9020e3257')
