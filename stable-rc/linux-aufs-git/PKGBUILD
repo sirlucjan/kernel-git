@@ -50,7 +50,7 @@ pkgbase=linux-aufs-git
 _major=5.10
 _srcname=linux-stable-rc
 pkgver=5.10.12.r55.gb861eb6a4c4a
-pkgrel=1
+pkgrel=2
 pkgdesc='Linux AUFS'
 arch=('x86_64')
 url="https://github.com/sfjro/aufs5-standalone"
@@ -317,4 +317,4 @@ sha512sums=('SKIP'
             '34e21ecc4ef0d07707283427fa82d561a9573d670e80ccd41f7d9cb595473b3844b8df7aeffcb4fe82d9deeef0a4d4e6aef663eb1a7a397fa181f06f418a0d6d'
             'eb12bca374c8709d7e98730a01b406c18c0438983ac0f65c788fa58de6bb3d1558a673f5bb75a594967b71079fb15a29176ef9db2971f42b40c2696c4870e4a7'
             '6a222febcc5a3249fb961320ea6aceccacb94dc0727741c9363054f95b89f5c5cbdf6d25ca8ef3e5eba014e7e1ec403cfe7ba1a380952c362a72f31341e71ff1'
-            'b23c7affe7a100a30aa31d63d9c50e13e661e06c53dd6fb6ace60395eda4efdbe7383d19317ca6eb4be936cb4d65b82115bb22f6308e1b6fb8ce8df9020e3257')
+            '72affdff47b0c1b62f0dd09b9afd16d361f5649226dab00922a4f5217a8d845b8ff8aa1ecde8858335bf784671bdd29d02d14f4006ecc1c48b006a57837d4468')
