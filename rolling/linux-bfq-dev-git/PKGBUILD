@@ -47,10 +47,10 @@ _1k_HZ_ticks=
 
 pkgbase=linux-bfq-dev-git
 # pkgname=('linux-bfq-dev-git' 'linux-bfq-dev-git-headers' 'linux-bfq-dev-git-docs')
-_major=5.10
+_major=5.11
 _srcname=linux
-pkgver=5.10.17.r9496.g62d2294bb5c5
-pkgrel=2
+pkgver=5.11.3.r11579.g3502b3625fce
+pkgrel=1
 pkgdesc='Linux BFQ-dev'
 arch=('x86_64')
 url="https://github.com/sirlucjan/bfq-mq-lucjan"
@@ -61,23 +61,25 @@ makedepends=('kmod' 'bc' 'libelf' 'git' 'python-sphinx' 'python-sphinx_rtd_theme
 #_lucjanpath="https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/${_major}"
 _lucjanpath="https://gitlab.com/sirlucjan/kernel-patches/raw/master/${_major}"
 # Some patches for BFQ conflict with patches for BFQ-dev.
-# To use linux-bfq-dev-git smoothly apply bfq-reverts before bfq-dev patch.
+# To use linux-bfq-dev smoothly apply bfq-reverts before bfq-dev patch.
 # Otherwise the kernel will not compile.
-_bfq_rev_path="bfq-reverts-all"
-_bfq_rev_patch="0001-bfq-reverts.patch"
-_bfq_path="bfq-dev-lucjan"
-_bfq_ver="v14"
-_bfq_rel="r2K210214"
-_bfq_patch="${_major}-${_bfq_path}-${_bfq_ver}-${_bfq_rel}.patch"
+#_bfq_rev_path="bfq-reverts-all"
+#_bfq_rev_patch="0001-bfq-reverts.patch"
+#_bfq_path="bfq-dev-lucjan"
+#_bfq_ver="v14"
+#_bfq_rel="r2K210223"
+#_bfq_patch="${_major}-${_bfq_path}-${_bfq_ver}-${_bfq_rel}.patch"
+_bfq_path="bfq-lucjan"
+_bfq_rel="r2K210301"
+_bfq_patch="${_major}-${_bfq_path}-${_bfq_rel}.patch"
 _gcc_path="cpu-patches-sep"
 _gcc_patch="0001-cpu-${_major}-merge-graysky-s-patchset.patch"
 
 source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/${_srcname}.git#branch=linux-rolling-stable"
-        "${_lucjanpath}/${_bfq_rev_path}/${_bfq_rev_patch}"
+        #"${_lucjanpath}/${_bfq_rev_path}/${_bfq_rev_patch}"
         "${_lucjanpath}/${_bfq_path}/${_bfq_patch}"
         "${_lucjanpath}/${_gcc_path}/${_gcc_patch}"
-        "${_lucjanpath}/arch-patches-v14-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
-        "${_lucjanpath}/arch-patches-v14-sep/0002-HID-quirks-Add-Apple-Magic-Trackpad-2-to-hid_have_sp.patch"
+        "${_lucjanpath}/arch-patches-v6/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
         "${_lucjanpath}/docs-patches/0001-Documentation-Fix-sphinx-3.5-causes-compilation-erro.patch"
          # the main kernel config files
         'config')
@@ -217,7 +219,7 @@ _package() {
 
 _package-headers() {
     pkgdesc="Headers and scripts for building modules for the $pkgdesc kernel"
-    depends=('linux-bfq-dev-git')
+    depends=('linux-bfq-dev-git' 'pahole')
     replaces=('linux-bfq-git-headers')
     conflicts=('linux-bfq-git-headers')
     provides=('linux-bfq-git-headers')
@@ -329,10 +331,8 @@ for _p in "${pkgname[@]}"; do
 done
 
 sha512sums=('SKIP'
-            '45fa721352143304eceff87649986fd42fcf4ae369f15ba704a435ab2f107dfe41c050eac25cd9167d2cc73d569aad8501cbd13477b62bad9724e4240f36ab15'
-            '4b4adee88983665f5e70f263e5eac89a5d4dff09210dc66dc09f45fd8b7b98cc4a3fd054d9850d5a9ffbbe6ff73d11d09b6d3750ebcc6a84619fa0ff1959f11a'
-            '34e21ecc4ef0d07707283427fa82d561a9573d670e80ccd41f7d9cb595473b3844b8df7aeffcb4fe82d9deeef0a4d4e6aef663eb1a7a397fa181f06f418a0d6d'
-            'eb12bca374c8709d7e98730a01b406c18c0438983ac0f65c788fa58de6bb3d1558a673f5bb75a594967b71079fb15a29176ef9db2971f42b40c2696c4870e4a7'
-            '6a222febcc5a3249fb961320ea6aceccacb94dc0727741c9363054f95b89f5c5cbdf6d25ca8ef3e5eba014e7e1ec403cfe7ba1a380952c362a72f31341e71ff1'
-            'd498ccd5790d6ccc2b6679e21d77359b3c90858bef063539c68f2f90808c70f6478565cba81f1e4e32c363ea4cfb07ffc5d3be3c69eca983c426f506b5c0fbf9'
-            '1bcadccdbf6a2041817733acaa95fcd2358fe81d9a231e0e109e3c49aac568913f925b489c5dbc05d68ec93e093993673db009f98bebd1ac18eb908c89d56882')
+            'f094dcc0610e54e0674131734f76a3663937af6e46c5ce3d5085e3255e50ef1584f6eb5b143fc39ccaa5c3d7400fd422eadb5004fc3da9f50bd26744d67c47e1'
+            '7783c2b24253a24d650c9955ef818e8c5de097a5413120e42c23fe56303d83ea045eb489cb1fde36a82e7caec344ebafe83756fa43d087937ad4f23d10e01659'
+            'b8ffb47a465c1c71694d7e3522c81ccadfb59288c52253afb8fda8c7c4c64b2f98ec82c0dbae9b7c8e89d78deaf64cbadb45b8653173f43e838eefbbfe78c86a'
+            '715e60d1bd6be9e79deb153210c35b797160df536844840335e6742989ca4d422fb2cbc4ac7544b71675413d9a532901483a26eec28f5addb461a3ae20558aa0'
+            'cd33e54563792be4e43cf36eca1b56fb1a6bd9df9553af5629904956c9c33752ae7c7919d1260c27b9a78e2bcde7acb08556cbe48d651ad9ed53437b785db31b')
