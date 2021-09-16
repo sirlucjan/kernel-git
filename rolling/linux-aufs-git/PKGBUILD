@@ -47,10 +47,10 @@ _1k_HZ_ticks=
 
 pkgbase=linux-aufs-git
 # pkgname=('linux-aufs-git' 'linux-aufs-git-headers' 'linux-aufs-git-docs')
-_major=5.13
+_major=5.14
 _srcname=linux
-pkgver=5.13.14.r18721.gf4270346b8fb
-pkgrel=1
+pkgver=5.13.18.r34980.g9d5d6ba5c53a
+pkgrel=2
 pkgdesc='Linux AUFS'
 arch=('x86_64')
 url="https://github.com/sfjro/aufs5-standalone"
@@ -60,16 +60,17 @@ makedepends=('kmod' 'bc' 'libelf' 'git' 'python-sphinx' 'python-sphinx_rtd_theme
              'graphviz' 'imagemagick' 'pahole' 'cpio' 'perl' 'tar' 'xz')
 #_lucjanpath="https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/${_major}"
 _lucjanpath="https://gitlab.com/sirlucjan/kernel-patches/raw/master/${_major}"
-_aufs_path="aufs-patches-v3"
-_aufs_ver="20210809"
+_aufs_path="aufs-patches"
+_aufs_ver="20210906"
 _aufs_patch="0001-aufs-${_aufs_ver}.patch"
-_compiler_path="cpu-patches-v2-sep"
+_compiler_path="cpu-patches-sep"
 _compiler_patch="0001-cpu-${_major}-merge-graysky-s-patchset.patch"
 
 source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/${_srcname}.git#branch=linux-rolling-stable"
         "${_lucjanpath}/${_aufs_path}/${_aufs_patch}"
         "${_lucjanpath}/${_compiler_path}/${_compiler_patch}"
-        "${_lucjanpath}/arch-patches-v6/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
+        "${_lucjanpath}/arch-patches-v4-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
+        "${_lucjanpath}/arch-patches-v4-sep/0002-watchdog-iTCO_wdt-Fix-detection-of-SMI-off-case.patch"
          # the main kernel config files
         'config')
 
@@ -315,7 +316,8 @@ for _p in "${pkgname[@]}"; do
 done
 
 sha512sums=('SKIP'
-            'df0cc22801c81c24fa6202799518fb363ae6e2bf44c88bfd1ea83fa3d2be3730cfada04a3a2b7845f44d0ca8c48cdaf50be79be250c351a1485c3b557a579515'
-            'c70ed7f971548c32080bf610f0e0d99c5489bea5262945a486df9b4f0c9bde915078a1b4acd15aed0dc6d2ecee511b5a76f5d47ea88977de17e0c6ceb3cde21c'
-            '00969ec0b3478544a4d013c15c719f6109bf217dafb581e56fb54772fa7f974088eba0574a98d8eec449281f01414d179642651a2ff65556f3cd65b9abd1b7a6'
-            'cec196c228f112b7d427de4813946b6bdc667f32afc8682fb4e53b78ad76467db4e23e1ae8af20d53f7a39e74faf5655f076f2be2ee72ec7b00236e84d07df0c')
+            'f3e42104cc5fb115ba0b6182a927eb76ff9440fd822827d7feec546cc3ef079484d9d13d1384be8085ca6cb49ca1e7d72c788d11c4a5c7449b72b302f7a58b50'
+            'b1aef4f4e7350ce8132e019f76a2ac68bee8a46eb981598fbda11402e62a8bcdfd2f49e5b2cc5dcf2e96c88ad047af12d53abb9fda05c9f7acec37879e5240db'
+            'a98921b79656965401a751ec99cc090b282d3c02c4f00f55222ce54a6790942ae6ea3c8da373690176c79957e373c712a18199feda9817050f68e6d64720b68c'
+            '5c2e7918f4dc31c271c78716ddddfba1f6e5f944cd87bd7808587646fa628c1e77c9c90283c71e94025f1e3b240ca9109da6ac2bfb2e9acf574154579f57c243'
+            '322fcdccd6005f68da0c580506bdb3959f825d71359d39b7bc2c18c6d482c188023b24ae6f488993d0157dfae402c09f6aba2d7a57df9594a26dc1c6778be234')
