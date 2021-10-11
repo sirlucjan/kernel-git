@@ -49,8 +49,8 @@ pkgbase=linux-bfq-dev-git
 # pkgname=('linux-bfq-dev-git' 'linux-bfq-dev-git-headers' 'linux-bfq-dev-git-docs')
 _major=5.14
 _srcname=linux
-pkgver=5.14.10.r0.gb133f076639b
-pkgrel=3
+pkgver=5.14.11.r0.g924356b31dcb
+pkgrel=1
 pkgdesc='Linux BFQ-dev'
 arch=('x86_64')
 url="https://github.com/sirlucjan/bfq-mq-lucjan"
@@ -122,6 +122,7 @@ prepare() {
         echo "Setting config..."
         cp ../config .config
         make olddefconfig
+        diff -u ../config .config || :
 
     ### Prepared version
         make -s kernelrelease > version
