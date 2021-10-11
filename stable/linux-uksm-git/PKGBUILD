@@ -49,8 +49,8 @@ pkgbase=linux-uksm-git
 # pkgname=('linux-uksm-git' 'linux-uksm-git-headers' 'linux-uksm-git-docs')
 _major=5.14
 _srcname=linux
-pkgver=5.14.10.r0.gb133f076639b
-pkgrel=2
+pkgver=5.14.11.r0.g924356b31dcb
+pkgrel=1
 pkgdesc='Linux UKSM'
 arch=('x86_64')
 url="https://github.com/dolohow/uksm"
@@ -113,6 +113,7 @@ prepare() {
         echo "Setting config..."
         cp ../config .config
         make olddefconfig
+        diff -u ../config .config || :
 
     ### Prepared version
         make -s kernelrelease > version
