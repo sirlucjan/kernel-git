@@ -47,10 +47,10 @@ _1k_HZ_ticks=
 
 pkgbase=linux-bfq-dev-git
 # pkgname=('linux-bfq-dev-git' 'linux-bfq-dev-git-headers' 'linux-bfq-dev-git-docs')
-_major=5.14
+_major=5.15
 _srcname=linux
-pkgver=5.14.18.r21630.g91071d60ec0a
-pkgrel=1
+pkgver=5.14.20.r21631.g3876336b576f
+pkgrel=2
 pkgdesc='Linux BFQ-dev'
 arch=('x86_64')
 url="https://github.com/sirlucjan/bfq-mq-lucjan"
@@ -70,19 +70,22 @@ _lucjanpath="https://gitlab.com/sirlucjan/kernel-patches/raw/master/${_major}"
 #_bfq_rel="r2K210223"
 #_bfq_patch="${_major}-${_bfq_path}-${_bfq_ver}-${_bfq_rel}.patch"
 _bfq_path="bfq-lucjan"
-_bfq_rel="r2K211015v1"
+_bfq_rel="r2K211101v1"
 _bfq_patch="${_major}-${_bfq_path}-${_bfq_rel}.patch"
-_compiler_path="cpu-patches-sep"
+_compiler_path="cpu-patches-v2-sep"
 _compiler_patch="0001-cpu-${_major}-merge-graysky-s-patchset.patch"
 
 source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/${_srcname}.git#branch=linux-rolling-stable"
         #"${_lucjanpath}/${_bfq_rev_path}/${_bfq_rev_patch}"
         "${_lucjanpath}/${_bfq_path}/${_bfq_patch}"
         "${_lucjanpath}/${_compiler_path}/${_compiler_patch}"
-        "${_lucjanpath}/arch-patches-v11-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
-        "${_lucjanpath}/arch-patches-v11-sep/0002-Bluetooth-btusb-Add-support-for-IMC-Networks-Mediate.patch"
-        "${_lucjanpath}/arch-patches-v11-sep/0003-Bluetooth-btusb-Add-support-for-Foxconn-Mediatek-Chi.patch"
-        "${_lucjanpath}/arch-patches-v11-sep/0004-ALSA-pci-rme-Set-up-buffer-type-properly.patch"
+        "${_lucjanpath}/arch-patches-v2-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
+        "${_lucjanpath}/arch-patches-v2-sep/0002-staging-r8188eu-Fix-breakage-introduced-when-5G-code.patch"
+        "${_lucjanpath}/arch-patches-v2-sep/0003-PCI-MSI-Deal-with-devices-lying-about-their-MSI-mask.patch"
+        "${_lucjanpath}/arch-patches-v2-sep/0004-PCI-Add-MSI-masking-quirk-for-Nvidia-ION-AHCI.patch"
+        "${_lucjanpath}/arch-patches-v2-sep/0005-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-q.patch"
+        "${_lucjanpath}/arch-patches-v2-sep/0006-drm-amd-pm-avoid-duplicate-powergate-ungate-setting.patch"
+        "${_lucjanpath}/arch-patches-v2-sep/0007-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-fl.patch"
          # the main kernel config files
         'config')
 
@@ -337,10 +340,13 @@ for _p in "${pkgname[@]}"; do
 done
 
 sha512sums=('SKIP'
-            '026388e5bc3560d9275efe3b10a578276253988bdc4c30b20e71b688a7c32e238686d6fa054ea1014d4b3226e7d113cd088644045b95bae99252718e0dbd22ae'
-            'b1aef4f4e7350ce8132e019f76a2ac68bee8a46eb981598fbda11402e62a8bcdfd2f49e5b2cc5dcf2e96c88ad047af12d53abb9fda05c9f7acec37879e5240db'
-            'ba40d02c5ed6e1b6509aa9607dd4594dc168ee2aaf92647cbd2efa4e5921b9165633c7013467b14e5934080b7c656dcaeda225fce6089bcf8fe8a336404038e1'
-            'd566e5660ec5b2fabb10baacafb84ae925ddf2ba05db29f5f4225f68b49bf2ba8ccf10dfdc820b88e196265bf5aa70d8d8319acfbe813914916479b1097df7a9'
-            '322106526f6a8110af558b363ec9377427f1b548ab62a0ab07f5557728aeff0ec7adb8d6f5d30585290cdb460427bbd91e7a5674b60c6049a65f469da18830d2'
-            '787ea00ae9d98cac1d2bbc6d4ee17c2419cd708aef902875bc803f4be5fec8392c6c743bd80e0c9a99624b5b074ed899f7412d2ad9f41add6ee038dda2a6d0f4'
-            'b5af36ea554a112e14b55567551cdaf3c8f85d86fee79705c71836b22606e3f3b3432f86f51ae7e5c07b83ee1f48de5629feb34c736255651523421d1d6b8591')
+            'f5167747754d1f6468d8e25fb50fcd74d6158e4251603a4878dd249de3ca66bc80009dbd23eb2b13270496313fc59894a451d9d24a11db33846835f4307977f2'
+            '53fa9b8a6fa451a7d57846d261f9af2de24e6442d2f318dfef899580d85e9cc54fa17267803a4f064eecab8ba3739062bfdf185de0afe119a1c86fe71cf3c711'
+            '24a50c673932f61746b75b7997c424dd4a7ee775f7c91b6264c6f2a7ddfa2d32d5a06e448fd0249c1a2e002f92df3ea3f06e8737b300592d7d8ca1709b4a8b5f'
+            'e59c9072a017efabd5e3895321d3f3f865a2647a1bec5f7ab20194d39a9dd3aadb512c3272b983fdf84e9da7b14a89a9e0c304d3fc9cf915caf549b555389ab3'
+            '0417ec25d8fdb6434e27fa0ad10e76daa4eb8b994755d853596221dc7e3422a8ec6eba93d1e487d25bc5d8c15efcd7763a15706dc0af940eb935666bd9bddc88'
+            '39426042c3680d21e1383920dea959e7d6b5662b60e53ea909168ec816850b7ddeee4ecc4db9d72eff834282364917a2bbc14b89fbb2c9872e9198010efa1fec'
+            'dee07b06dafbf4cb5335cb435b4274d78d7304d62bc514f4f51099371f5e1735c0c42afddb65d6ebadf87d52a13cf3629e072333dc5a86dcffd48fccc641744b'
+            '2c5c7c775747263def81b0d48a7f16c6e0f9055fd11e4bc990517ff36a4b550073e9b05fe089eaaeb668045d5503ccd5c96c00c463b5d60fd238da05dd436e81'
+            'ca71539acefa8a4404366446750f4bdada63c909222a4c87eb982be01bf6d78d1ba8590170330e2f8e1f45c18d56e187240ee59d6d7c4c2562afff859edf0b33'
+            'c5804ce048a7ceffb7b61f94719c8f731e93c086da15c0d17ac9d0496c7433a45e10abf00d2eacef3b7070bb6e252184d27d76006fa7ef266632154cde5627b0')
