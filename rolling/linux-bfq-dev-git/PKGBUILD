@@ -50,7 +50,7 @@ pkgbase=linux-bfq-dev-git
 _major=5.15
 _srcname=linux
 pkgver=5.14.20.r21631.g3876336b576f
-pkgrel=2
+pkgrel=3
 pkgdesc='Linux BFQ-dev'
 arch=('x86_64')
 url="https://github.com/sirlucjan/bfq-mq-lucjan"
@@ -349,4 +349,4 @@ sha512sums=('SKIP'
             'dee07b06dafbf4cb5335cb435b4274d78d7304d62bc514f4f51099371f5e1735c0c42afddb65d6ebadf87d52a13cf3629e072333dc5a86dcffd48fccc641744b'
             '2c5c7c775747263def81b0d48a7f16c6e0f9055fd11e4bc990517ff36a4b550073e9b05fe089eaaeb668045d5503ccd5c96c00c463b5d60fd238da05dd436e81'
             'ca71539acefa8a4404366446750f4bdada63c909222a4c87eb982be01bf6d78d1ba8590170330e2f8e1f45c18d56e187240ee59d6d7c4c2562afff859edf0b33'
-            'c5804ce048a7ceffb7b61f94719c8f731e93c086da15c0d17ac9d0496c7433a45e10abf00d2eacef3b7070bb6e252184d27d76006fa7ef266632154cde5627b0')
+            '262081a27a9a31136edc8c41819a437d18a45d5ae0e3a998fe57eff0f2ba554993e2e07d76d42d37fcc50c51213c43e1de94a1fa369cb420c8aee740645a1fc3')
