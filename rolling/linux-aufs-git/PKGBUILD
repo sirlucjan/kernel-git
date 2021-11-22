@@ -50,7 +50,7 @@ pkgbase=linux-aufs-git
 _major=5.15
 _srcname=linux
 pkgver=5.15.4.r24636.g5a45115d0c04
-pkgrel=1
+pkgrel=2
 pkgdesc='Linux AUFS'
 arch=('x86_64')
 url="https://github.com/sfjro/aufs5-standalone"
@@ -69,11 +69,13 @@ _compiler_patch="0001-cpu-${_major}-merge-graysky-s-patchset.patch"
 source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/${_srcname}.git#branch=linux-rolling-stable"
         "${_lucjanpath}/${_aufs_path}/${_aufs_patch}"
         "${_lucjanpath}/${_compiler_path}/${_compiler_patch}"
-        "${_lucjanpath}/arch-patches-v3-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
-        "${_lucjanpath}/arch-patches-v3-sep/0002-staging-r8188eu-Fix-breakage-introduced-when-5G-code.patch"
-        "${_lucjanpath}/arch-patches-v3-sep/0003-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-q.patch"
-        "${_lucjanpath}/arch-patches-v3-sep/0004-drm-amd-pm-avoid-duplicate-powergate-ungate-setting.patch"
-        "${_lucjanpath}/arch-patches-v3-sep/0005-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-fl.patch"
+        "${_lucjanpath}/arch-patches-v4-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
+        "${_lucjanpath}/arch-patches-v4-sep/0002-staging-r8188eu-Fix-breakage-introduced-when-5G-code.patch"
+        "${_lucjanpath}/arch-patches-v4-sep/0003-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-q.patch"
+        "${_lucjanpath}/arch-patches-v4-sep/0004-drm-amd-pm-avoid-duplicate-powergate-ungate-setting.patch"
+        "${_lucjanpath}/arch-patches-v4-sep/0005-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-fl.patch"
+        "${_lucjanpath}/arch-patches-v4-sep/0006-cpufreq-intel_pstate-ITMT-support-for-overclocked-sy.patch"
+        "${_lucjanpath}/arch-patches-v4-sep/0007-Bluetooth-btintel-Fix-bdaddress-comparison-with-garb.patch"
          # the main kernel config files
         'config')
 
@@ -322,9 +324,11 @@ done
 sha512sums=('SKIP'
             'dc1046083cbf06f040f6d92955ef2399e95b0a497122523d35673210ffbb54209a01ae506fa3282701834b36fca04b5661c53c5da4409b973d606004ea132bc1'
             '53fa9b8a6fa451a7d57846d261f9af2de24e6442d2f318dfef899580d85e9cc54fa17267803a4f064eecab8ba3739062bfdf185de0afe119a1c86fe71cf3c711'
-            'c9491cae2327be0c06c38c0b2c1102b73f71247188b6890248b28a66cdd35a7cbe54c70428d592ea1a63261420116a1c44a2732cdb1274b6939d402c8f2f1699'
-            '5813ab217fd2f652eed6c7de21fef46f29e431cffa34a30a04dc36a31f1679d85823231a6a3843d00a524beb38b9e5fffb207cf16b47b30ddfba2ac8d5f4f88d'
-            '9731c3e9e8de6272e1969c2bc545c386482216dcba0a133bdc4971098da1379b290d01230886c6a0e89cef1cb5dba17825c70fbaa2085ad053d167b351546ece'
-            '16926270cfe0dd575bc25240380cb77aca4f63230cf6040ea32e10a9a6b610ad1acc16b5a66c653cc553b0f031b0ad7ca8c3b2d711f736b2034b2b1e040efb67'
-            '42f139d8947b26c5455a95008723b05b5bb342cd4211a8f032c9f0551d72c30348c20cb04d149aca7a1ffac0b6be4e6709c64c3347984571c4d0d2684327fac3'
+            '0c4c80b0245f96f55b19115e6ace612fb52757e8dd09195c5f9ce32648249cd5293fc93e72c3ce4558f045222ab1412b1a9f3ae97f769b8831176a1bb2897208'
+            'd086e8a1be1bae24280daaac77d12c4648af5d793d0ace032b657727e83dde2a948ab77c33d124b23df8c59927a0ae77f9224052fa67047044718068b20a5cc0'
+            'a9ffd3261fed5826d52856837046ba4a56b4e0ab11760deda9f1951acd7e58f9edfd807f8ae37a9e7abeafaa843856e7033030794b5a2adcec87c07a8729d87c'
+            'a27dff13e97694bfac0c7bb04f6b799048a4b848f31933e4be3b75752721a9af8659156be5c800e5fb60fd7debd37e0e3d4c7a870acb6abf28ea7104ae601c8b'
+            '529960b3f57a9a57c08026e164cf3e098a556780f059c1f2cbe57c7b1359d7efc19b4037990e22106a728574895588240f2f2ac5bfc6757624f9eaae9eaf1135'
+            '5561f37974096fa10e5d19aa2873971554cec3aebad95fe03d388f814d7e297c73c2405db87317e894007f3597dc72e0ccb6a3873e4c9bac01a0a7b18b15c02d'
+            'f46c0681f34f71f2104fd420cbab1036fbabe33467047cb6fe342b5d68da8b94136374899f1cac07420b8bc0fe7beb01336e14d49eb25d11df699ea35408204d'
             'b2e35826456470bcfef9b7a74498fc1c2513151986d0f82c02f2ea9a3f8d31be7f9ba9053e3bd444eb793a330718ec6dd94fbee57dd113cbc5f3a96b1135964b')
