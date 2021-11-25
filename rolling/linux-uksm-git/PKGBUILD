@@ -49,8 +49,8 @@ pkgbase=linux-uksm-git
 # pkgname=('linux-uksm-git' 'linux-uksm-git-headers' 'linux-uksm-git-docs')
 _major=5.15
 _srcname=linux
-pkgver=5.15.4.r24636.g5a45115d0c04
-pkgrel=2
+pkgver=5.15.5.r24637.gf47d2864fda6
+pkgrel=1
 pkgdesc='Linux UKSM'
 arch=('x86_64')
 url="https://github.com/dolohow/uksm"
@@ -70,13 +70,12 @@ _compiler_patch="0001-cpu-${_major}-merge-graysky-s-patchset.patch"
 source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/${_srcname}.git#branch=linux-rolling-stable"
         "${_lucjanpath}/${_uksm_path}/${_uksm_patch}"
         "${_lucjanpath}/${_compiler_path}/${_compiler_patch}"
-        "${_lucjanpath}/arch-patches-v4-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
-        "${_lucjanpath}/arch-patches-v4-sep/0002-staging-r8188eu-Fix-breakage-introduced-when-5G-code.patch"
-        "${_lucjanpath}/arch-patches-v4-sep/0003-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-q.patch"
-        "${_lucjanpath}/arch-patches-v4-sep/0004-drm-amd-pm-avoid-duplicate-powergate-ungate-setting.patch"
-        "${_lucjanpath}/arch-patches-v4-sep/0005-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-fl.patch"
-        "${_lucjanpath}/arch-patches-v4-sep/0006-cpufreq-intel_pstate-ITMT-support-for-overclocked-sy.patch"
-        "${_lucjanpath}/arch-patches-v4-sep/0007-Bluetooth-btintel-Fix-bdaddress-comparison-with-garb.patch"
+        "${_lucjanpath}/arch-patches-v5-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
+        "${_lucjanpath}/arch-patches-v5-sep/0002-staging-r8188eu-Fix-breakage-introduced-when-5G-code.patch"
+        "${_lucjanpath}/arch-patches-v5-sep/0003-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-q.patch"
+        "${_lucjanpath}/arch-patches-v5-sep/0004-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-fl.patch"
+        "${_lucjanpath}/arch-patches-v5-sep/0005-cpufreq-intel_pstate-ITMT-support-for-overclocked-sy.patch"
+        "${_lucjanpath}/arch-patches-v5-sep/0006-Bluetooth-btintel-Fix-bdaddress-comparison-with-garb.patch"
          # the main kernel config files
         'config')
 
@@ -325,11 +324,10 @@ done
 sha512sums=('SKIP'
             '4c901fe38e197b0397702ec46329fac6cdd5b7ff6e2601f76f0cbabcf452581936c58028c3a93471782541ad3045b10d1030fad4b25121f35d091495d17fd308'
             '53fa9b8a6fa451a7d57846d261f9af2de24e6442d2f318dfef899580d85e9cc54fa17267803a4f064eecab8ba3739062bfdf185de0afe119a1c86fe71cf3c711'
-            '0c4c80b0245f96f55b19115e6ace612fb52757e8dd09195c5f9ce32648249cd5293fc93e72c3ce4558f045222ab1412b1a9f3ae97f769b8831176a1bb2897208'
-            'd086e8a1be1bae24280daaac77d12c4648af5d793d0ace032b657727e83dde2a948ab77c33d124b23df8c59927a0ae77f9224052fa67047044718068b20a5cc0'
-            'a9ffd3261fed5826d52856837046ba4a56b4e0ab11760deda9f1951acd7e58f9edfd807f8ae37a9e7abeafaa843856e7033030794b5a2adcec87c07a8729d87c'
-            'a27dff13e97694bfac0c7bb04f6b799048a4b848f31933e4be3b75752721a9af8659156be5c800e5fb60fd7debd37e0e3d4c7a870acb6abf28ea7104ae601c8b'
-            '529960b3f57a9a57c08026e164cf3e098a556780f059c1f2cbe57c7b1359d7efc19b4037990e22106a728574895588240f2f2ac5bfc6757624f9eaae9eaf1135'
-            '5561f37974096fa10e5d19aa2873971554cec3aebad95fe03d388f814d7e297c73c2405db87317e894007f3597dc72e0ccb6a3873e4c9bac01a0a7b18b15c02d'
-            'f46c0681f34f71f2104fd420cbab1036fbabe33467047cb6fe342b5d68da8b94136374899f1cac07420b8bc0fe7beb01336e14d49eb25d11df699ea35408204d'
+            '0cf6c8e131dd9bb2447e0c782cdb55223a4a5fefaf2bb6517255d4908a031e3d6d1ddac842933b956dc48d1697a01a49840c13a145cb60f428e5c7b91f495f71'
+            '2879a3bcd8dd16cda430bccf8ea86102e2cd00b737c2d2d7cec4b471135ed6e30b5313d4de6d505860925b84b0a26bbe9559ac7171a3f44004645ff049937f8b'
+            '495ef1d6f7f76cc9417c517f9f88b09094804a6cd7b253418fffa8aa60031b6d1b580e9df0a763419d267fe5ed41ebb9f209cedd2b68bd878effa79ef7b65ca8'
+            '8b4e9ce839b737389cb03facc7c5f334c692933944c4f04f94c6dded0475aef77612193be8b47ed7641feff1a76fca54851ee9a17b52bf672863671b90a406b8'
+            '1a187772d4122339db9643dbb33e371b85bf31adb638a7f06179a62cd947e89d5cd736f49ad511b267e01a397f3c4f5425ffb7cbad04fbbd60187a4e949f6d5e'
+            '2728ba586e98806386fd2f9c7d687338ff7aaf446817afe8861e0d4c9fdefcdf0e19e94b991b8107d3953499173689bd010480c816ffdc57d7b005c3c8979a5e'
             '1c0547916575bb78102a828cb53c5c412d7274ae44a6b97abbb86b29cb1ea3cc9c8b2f35025366e43c8c5918e0d0ee84964df8fec5df41f3ec2b11ec296b12ec')
