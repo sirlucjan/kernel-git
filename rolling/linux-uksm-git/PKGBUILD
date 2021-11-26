@@ -50,7 +50,7 @@ pkgbase=linux-uksm-git
 _major=5.15
 _srcname=linux
 pkgver=5.15.5.r24637.gf47d2864fda6
-pkgrel=1
+pkgrel=2
 pkgdesc='Linux UKSM'
 arch=('x86_64')
 url="https://github.com/dolohow/uksm"
@@ -70,12 +70,13 @@ _compiler_patch="0001-cpu-${_major}-merge-graysky-s-patchset.patch"
 source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/${_srcname}.git#branch=linux-rolling-stable"
         "${_lucjanpath}/${_uksm_path}/${_uksm_patch}"
         "${_lucjanpath}/${_compiler_path}/${_compiler_patch}"
-        "${_lucjanpath}/arch-patches-v5-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
-        "${_lucjanpath}/arch-patches-v5-sep/0002-staging-r8188eu-Fix-breakage-introduced-when-5G-code.patch"
-        "${_lucjanpath}/arch-patches-v5-sep/0003-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-q.patch"
-        "${_lucjanpath}/arch-patches-v5-sep/0004-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-fl.patch"
-        "${_lucjanpath}/arch-patches-v5-sep/0005-cpufreq-intel_pstate-ITMT-support-for-overclocked-sy.patch"
-        "${_lucjanpath}/arch-patches-v5-sep/0006-Bluetooth-btintel-Fix-bdaddress-comparison-with-garb.patch"
+        "${_lucjanpath}/arch-patches-v6-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
+        "${_lucjanpath}/arch-patches-v6-sep/0002-staging-r8188eu-Fix-breakage-introduced-when-5G-code.patch"
+        "${_lucjanpath}/arch-patches-v6-sep/0003-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-q.patch"
+        "${_lucjanpath}/arch-patches-v6-sep/0004-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-fl.patch"
+        "${_lucjanpath}/arch-patches-v6-sep/0005-cpufreq-intel_pstate-ITMT-support-for-overclocked-sy.patch"
+        "${_lucjanpath}/arch-patches-v6-sep/0006-Bluetooth-btintel-Fix-bdaddress-comparison-with-garb.patch"
+        "${_lucjanpath}/arch-patches-v6-sep/0007-lg-laptop-Recognize-more-models.patch"
          # the main kernel config files
         'config')
 
@@ -324,10 +325,11 @@ done
 sha512sums=('SKIP'
             '4c901fe38e197b0397702ec46329fac6cdd5b7ff6e2601f76f0cbabcf452581936c58028c3a93471782541ad3045b10d1030fad4b25121f35d091495d17fd308'
             '53fa9b8a6fa451a7d57846d261f9af2de24e6442d2f318dfef899580d85e9cc54fa17267803a4f064eecab8ba3739062bfdf185de0afe119a1c86fe71cf3c711'
-            '0cf6c8e131dd9bb2447e0c782cdb55223a4a5fefaf2bb6517255d4908a031e3d6d1ddac842933b956dc48d1697a01a49840c13a145cb60f428e5c7b91f495f71'
-            '2879a3bcd8dd16cda430bccf8ea86102e2cd00b737c2d2d7cec4b471135ed6e30b5313d4de6d505860925b84b0a26bbe9559ac7171a3f44004645ff049937f8b'
-            '495ef1d6f7f76cc9417c517f9f88b09094804a6cd7b253418fffa8aa60031b6d1b580e9df0a763419d267fe5ed41ebb9f209cedd2b68bd878effa79ef7b65ca8'
-            '8b4e9ce839b737389cb03facc7c5f334c692933944c4f04f94c6dded0475aef77612193be8b47ed7641feff1a76fca54851ee9a17b52bf672863671b90a406b8'
-            '1a187772d4122339db9643dbb33e371b85bf31adb638a7f06179a62cd947e89d5cd736f49ad511b267e01a397f3c4f5425ffb7cbad04fbbd60187a4e949f6d5e'
-            '2728ba586e98806386fd2f9c7d687338ff7aaf446817afe8861e0d4c9fdefcdf0e19e94b991b8107d3953499173689bd010480c816ffdc57d7b005c3c8979a5e'
-            '1c0547916575bb78102a828cb53c5c412d7274ae44a6b97abbb86b29cb1ea3cc9c8b2f35025366e43c8c5918e0d0ee84964df8fec5df41f3ec2b11ec296b12ec')
+            'e7462d4ccb73bd13aae7003366d46dc18941f7b6b5609fc4bfc36357d243e9b77a892d78dfcd337ddb096162a38360ae2755720ae153746d6cbb9478eeaefd45'
+            'f1082790ffa260e18af1d01e5b26d39786773b362c88ef3ccb092bc6edf63cf85c54558f0a56f3e9218cd34cb85504d4a7f27a5b5d07e72e86c398c1bb46b76c'
+            '9ebce2257d6c99a19de62eee38066e95b4dde709af6804f259aecb13eb89e7f2fe619d2c8f043e56ba6d2dcccef1abd2f915fca82d2eb1a121603e2dd66c9acb'
+            '3bfce844ae5ddb0ea76b4628076b632b735ba4ce86ab7377c1c07def84b5ab5b504e892f6e9052f0b68542cc858a918f5073029e8cfe4db92844c32be7d126ad'
+            'b25bebfc4c248afd9fc6c064a575b345202abcb4915ab465c1a7aeb7339bd64e448863a9b0341da1b4ea03c36689449baad8d8836e2094a05a6fe59e1be18c0d'
+            '48f18f0ced71b80a2fcd95ec9ddd4f6ddab5b591ed246816838afec31ee351952bdef392e4a6fcf650eaef6eab5a20d67438c9b9f887df038663bf853aa1c9da'
+            '431f8fc2cb361df7afec983196ddbedb858498f20987abd1447dc6afff0f63256f0e5bd9834a720cc2fa58a1e2cd4453f11aafc3e699ff3da9edf841cc494819'
+            'd413abbd03a8c787e7c51323a4950234eb5dc8d2dc6c6e3d5ae1b531548787a4e7c21c9a258cf8edc9de23f54d616dfab561e04e5b3de2a89fbc07dc83f64dfa')
