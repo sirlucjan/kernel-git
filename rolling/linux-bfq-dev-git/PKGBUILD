@@ -49,8 +49,8 @@ pkgbase=linux-bfq-dev-git
 # pkgname=('linux-bfq-dev-git' 'linux-bfq-dev-git-headers' 'linux-bfq-dev-git-docs')
 _major=5.15
 _srcname=linux
-pkgver=5.15.5.r24637.gf47d2864fda6
-pkgrel=2
+pkgver=5.15.6.r24638.ge808e2860a02
+pkgrel=1
 pkgdesc='Linux BFQ-dev'
 arch=('x86_64')
 url="https://github.com/sirlucjan/bfq-mq-lucjan"
@@ -79,13 +79,12 @@ source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/${_srcname}.git#br
         #"${_lucjanpath}/${_bfq_rev_path}/${_bfq_rev_patch}"
         "${_lucjanpath}/${_bfq_path}/${_bfq_patch}"
         "${_lucjanpath}/${_compiler_path}/${_compiler_patch}"
-        "${_lucjanpath}/arch-patches-v6-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
-        "${_lucjanpath}/arch-patches-v6-sep/0002-staging-r8188eu-Fix-breakage-introduced-when-5G-code.patch"
-        "${_lucjanpath}/arch-patches-v6-sep/0003-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-q.patch"
-        "${_lucjanpath}/arch-patches-v6-sep/0004-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-fl.patch"
-        "${_lucjanpath}/arch-patches-v6-sep/0005-cpufreq-intel_pstate-ITMT-support-for-overclocked-sy.patch"
-        "${_lucjanpath}/arch-patches-v6-sep/0006-Bluetooth-btintel-Fix-bdaddress-comparison-with-garb.patch"
-        "${_lucjanpath}/arch-patches-v6-sep/0007-lg-laptop-Recognize-more-models.patch"
+        "${_lucjanpath}/arch-patches-v7-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
+        "${_lucjanpath}/arch-patches-v7-sep/0002-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-q.patch"
+        "${_lucjanpath}/arch-patches-v7-sep/0003-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-fl.patch"
+        "${_lucjanpath}/arch-patches-v7-sep/0004-cpufreq-intel_pstate-ITMT-support-for-overclocked-sy.patch"
+        "${_lucjanpath}/arch-patches-v7-sep/0005-Bluetooth-btintel-Fix-bdaddress-comparison-with-garb.patch"
+        "${_lucjanpath}/arch-patches-v7-sep/0006-lg-laptop-Recognize-more-models.patch"
          # the main kernel config files
         'config')
 
@@ -342,11 +341,10 @@ done
 sha512sums=('SKIP'
             '10fb59375e1eb446e6f365e0638b0fbfc73d04c3962f859995775baeb488e2e2f9e8ac8c3116c8c8e48dd1ba44252903d1fca91cdb84cc8d24920937607171b5'
             '53fa9b8a6fa451a7d57846d261f9af2de24e6442d2f318dfef899580d85e9cc54fa17267803a4f064eecab8ba3739062bfdf185de0afe119a1c86fe71cf3c711'
-            'e7462d4ccb73bd13aae7003366d46dc18941f7b6b5609fc4bfc36357d243e9b77a892d78dfcd337ddb096162a38360ae2755720ae153746d6cbb9478eeaefd45'
-            'f1082790ffa260e18af1d01e5b26d39786773b362c88ef3ccb092bc6edf63cf85c54558f0a56f3e9218cd34cb85504d4a7f27a5b5d07e72e86c398c1bb46b76c'
-            '9ebce2257d6c99a19de62eee38066e95b4dde709af6804f259aecb13eb89e7f2fe619d2c8f043e56ba6d2dcccef1abd2f915fca82d2eb1a121603e2dd66c9acb'
-            '3bfce844ae5ddb0ea76b4628076b632b735ba4ce86ab7377c1c07def84b5ab5b504e892f6e9052f0b68542cc858a918f5073029e8cfe4db92844c32be7d126ad'
-            'b25bebfc4c248afd9fc6c064a575b345202abcb4915ab465c1a7aeb7339bd64e448863a9b0341da1b4ea03c36689449baad8d8836e2094a05a6fe59e1be18c0d'
-            '48f18f0ced71b80a2fcd95ec9ddd4f6ddab5b591ed246816838afec31ee351952bdef392e4a6fcf650eaef6eab5a20d67438c9b9f887df038663bf853aa1c9da'
-            '431f8fc2cb361df7afec983196ddbedb858498f20987abd1447dc6afff0f63256f0e5bd9834a720cc2fa58a1e2cd4453f11aafc3e699ff3da9edf841cc494819'
+            '35ad5bd821cbc6dba05067bb24815c5b353ad5dd1e82f8392584787d11a9781ff29bc07f0083ba533bc72ed649a350ec8db855c8dc2acdfd72bb824ab31c706c'
+            '7ece1240a833cd871f07365e04af792ef53fcb909695099c7db4b02f149695c6dbaf64c5b1a64d9dfc7bfa50105ad35513341413c8a228a0622ee86dd07e7ebd'
+            'e32754683a20bd1b2e5be73f9f26b6179a9a79d1a7cd24f9f356c3c65dce46077c7c1e3b6a6cb1550598d606dcef33e25f5f49d30d42bd48815b67210bb6e33d'
+            'b73d1a6ec86510d8a16e85a5eff2440fee7304597f76eff422a64bbcbb115e5278d498bddd680dcd1eb7015e7e71cdd518c1005f9d9172e7fffc76529163510e'
+            'f78cf2407bed09468392211e64dbfd687ad2409fec02dcc23a466d9e3222e0ddefec12608e1cd9e69c3275df110d74fbba6055adae80601a6064111964b8677d'
+            'aed9d8a5844a22175989f1b05a6ace4f4684f9a7f3afa54a0c9c7f2da116349851329c55262c829776558b286da80cf351b3c22a36ab15c2087d5c88bfef61fc'
             '4d608fe71abfc076825372b3987809e6e97be7160209595c63fc5a56d3e6d1ae6bd5b61a96243ff2c25fc15a8024ade798a764e5d31046bdb7093b70f00ed4dd')
