@@ -50,7 +50,7 @@ pkgbase=linux-aufs-git
 _major=5.15
 _srcname=linux
 pkgver=5.15.6.r24638.ge808e2860a02
-pkgrel=1
+pkgrel=2
 pkgdesc='Linux AUFS'
 arch=('x86_64')
 url="https://github.com/sfjro/aufs5-standalone"
@@ -69,12 +69,13 @@ _compiler_patch="0001-cpu-${_major}-merge-graysky-s-patchset.patch"
 source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/${_srcname}.git#branch=linux-rolling-stable"
         "${_lucjanpath}/${_aufs_path}/${_aufs_patch}"
         "${_lucjanpath}/${_compiler_path}/${_compiler_patch}"
-        "${_lucjanpath}/arch-patches-v7-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
-        "${_lucjanpath}/arch-patches-v7-sep/0002-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-q.patch"
-        "${_lucjanpath}/arch-patches-v7-sep/0003-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-fl.patch"
-        "${_lucjanpath}/arch-patches-v7-sep/0004-cpufreq-intel_pstate-ITMT-support-for-overclocked-sy.patch"
-        "${_lucjanpath}/arch-patches-v7-sep/0005-Bluetooth-btintel-Fix-bdaddress-comparison-with-garb.patch"
-        "${_lucjanpath}/arch-patches-v7-sep/0006-lg-laptop-Recognize-more-models.patch"
+        "${_lucjanpath}/arch-patches-v8-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
+        "${_lucjanpath}/arch-patches-v8-sep/0002-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-q.patch"
+        "${_lucjanpath}/arch-patches-v8-sep/0003-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-fl.patch"
+        "${_lucjanpath}/arch-patches-v8-sep/0004-cpufreq-intel_pstate-ITMT-support-for-overclocked-sy.patch"
+        "${_lucjanpath}/arch-patches-v8-sep/0005-Bluetooth-btintel-Fix-bdaddress-comparison-with-garb.patch"
+        "${_lucjanpath}/arch-patches-v8-sep/0006-lg-laptop-Recognize-more-models.patch"
+        "${_lucjanpath}/arch-patches-v8-sep/0007-Revert-drm-i915-Implement-Wa_1508744258.patch"
          # the main kernel config files
         'config')
 
@@ -323,10 +324,11 @@ done
 sha512sums=('SKIP'
             '7dca7735a7f0f6a14f3ffff3778e1d8d944f00f876ca551167512bc6203361bedcc76a392d5144bc7c510146bc41d8f676c6caa42025a2f3735a79cf8792a136'
             '53fa9b8a6fa451a7d57846d261f9af2de24e6442d2f318dfef899580d85e9cc54fa17267803a4f064eecab8ba3739062bfdf185de0afe119a1c86fe71cf3c711'
-            '35ad5bd821cbc6dba05067bb24815c5b353ad5dd1e82f8392584787d11a9781ff29bc07f0083ba533bc72ed649a350ec8db855c8dc2acdfd72bb824ab31c706c'
-            '7ece1240a833cd871f07365e04af792ef53fcb909695099c7db4b02f149695c6dbaf64c5b1a64d9dfc7bfa50105ad35513341413c8a228a0622ee86dd07e7ebd'
-            'e32754683a20bd1b2e5be73f9f26b6179a9a79d1a7cd24f9f356c3c65dce46077c7c1e3b6a6cb1550598d606dcef33e25f5f49d30d42bd48815b67210bb6e33d'
-            'b73d1a6ec86510d8a16e85a5eff2440fee7304597f76eff422a64bbcbb115e5278d498bddd680dcd1eb7015e7e71cdd518c1005f9d9172e7fffc76529163510e'
-            'f78cf2407bed09468392211e64dbfd687ad2409fec02dcc23a466d9e3222e0ddefec12608e1cd9e69c3275df110d74fbba6055adae80601a6064111964b8677d'
-            'aed9d8a5844a22175989f1b05a6ace4f4684f9a7f3afa54a0c9c7f2da116349851329c55262c829776558b286da80cf351b3c22a36ab15c2087d5c88bfef61fc'
+            '7570945d5a75dfa6b20d4babf826ecfcac647f7b4396fdc5ea21f304d2ff3fbf1591b6bfee72309c463bcb4c090deaca4201988c5e1834b9d451e04322946082'
+            '6c13ccaa1403400e014a80d022a251a25e8401b7767cff899c6de0f3837a0efdba751c6eec51bb0b20818c3e200fbd5a2289b99908fbe457590ad87e7af20667'
+            '2b2b8bfe487611248ea304fbbb6d6c933e6d07e2ed43914807bba3f808d82cfd60b711210e26b6177ba817a8a15910a900dc6a3e0027ecac5dd4dcd5b3be851b'
+            'cf1f6efacf802f6a05a6290fdcc2fa8c963c974b45510ed88bb8a1ddcc9e7b531d60ff91ac5ee697c9d2768f7211431dec1dad5c46cbadd1962fdad6740d6f19'
+            'eaa1fe11667bed7ac28535e2859dcec886420db09fbbafc687c352b757d5d250e1792a9afb27d9be89c098e899673f1d47e12d258f3053573548b8f4dafca905'
+            '44572dab7481b98d7eb63a3f41ef527cae466ac6c695c4f6ea6a665c63dc995c4ab57323b1c14a4f66fcd8af640c3104e2aa1f067667da338c52fe474153b49d'
+            '623b96f722e8d7baba91bbf7b1f10c60879e493a94990e056276a94b2076a5ba672ff20833952a106c0cb1c38b8bc59a3a32bc9df8a3b623479eab28cff33ba4'
             'f2a25beecac68eba18fdf0fc2a7afc438fe55dd01a816b14a803e09611a976c720006884baab9030abca4535b338bd73a2cf4f8f9d42eeebd16d62fa044db639')
