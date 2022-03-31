@@ -50,7 +50,7 @@ pkgbase=linux-uksm-git
 _major=5.17
 _srcname=linux-stable-rc
 pkgver=5.17.1.r13.ga4a581be34e0
-pkgrel=0
+pkgrel=0.1
 pkgdesc='Linux UKSM'
 arch=('x86_64')
 url="https://github.com/dolohow/uksm"
@@ -183,7 +183,7 @@ build() {
 _package() {
     pkgdesc="The $pkgdesc kernel and modules"
     depends=('coreutils' 'kmod' 'initramfs')
-    optdepends=('crda: to set the correct wireless channels of your country'
+    optdepends=('wireless-regdb: to set the correct wireless channels of your country'
                 'linux-firmware: firmware images needed for some devices'
                 'modprobed-db: Keeps track of EVERY kernel module that has ever been probed - useful for those of us who make localmodconfig')
     provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE)
@@ -322,4 +322,4 @@ sha512sums=('SKIP'
             'b63921b6246bd1b9545a8042d76334bef8a7ee46e5404c5efec4a842a455a84046e92423b2bc6d950f19dcf85805d7493fe71d6d177e3b46b52a279b0a44d0c9'
             '8782f82cd86a0ab7ef4eec1f69f172b5327ee36a1e0a1381eebca007e1160e5f6bf8512ab26e1ebba233c1dfb9658ba810f0d47b5d9118c326c17000f40fda4e'
             'cb69c6d058c676dbf7246569e7b399a8305c7292b37561dd37a149977398c3deabee47197260b54f549b88d569064aae542ecadf2f931258664dbc4b8f9c9f18'
-            '025f5b2427a97c1e9b709fb6f751dde2a1c7f6bcded4c8f35646d10207724eb3723f25dbf98b83b5eae4c5504ff92b8b5c2ec7c14292d25f7c84021aa3b3c59a')
+            'a1e903979af1ee6fa476f5f7f9aa5357a7d2dff9443e5f68809ca59a0a0d1e440075b68618851143b83f01a9e62d85fc4d9f4d7507275fd30cd76344b6c8c532')
