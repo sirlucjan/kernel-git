@@ -50,7 +50,7 @@ pkgbase=linux-aufs-git
 _major=5.17
 _srcname=linux-stable-rc
 pkgver=5.17.1.r13.ga4a581be34e0
-pkgrel=0
+pkgrel=0.1
 pkgdesc='Linux AUFS'
 arch=('x86_64')
 url="https://github.com/sfjro/aufs5-standalone"
@@ -182,7 +182,7 @@ build() {
 _package() {
     pkgdesc="The $pkgdesc kernel and modules"
     depends=('coreutils' 'kmod' 'initramfs')
-    optdepends=('crda: to set the correct wireless channels of your country'
+    optdepends=('wireless-regdb: to set the correct wireless channels of your country'
                 'linux-firmware: firmware images needed for some devices'
                 'modprobed-db: Keeps track of EVERY kernel module that has ever been probed - useful for those of us who make localmodconfig')
     provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE)
@@ -321,4 +321,4 @@ sha512sums=('SKIP'
             'b63921b6246bd1b9545a8042d76334bef8a7ee46e5404c5efec4a842a455a84046e92423b2bc6d950f19dcf85805d7493fe71d6d177e3b46b52a279b0a44d0c9'
             '8782f82cd86a0ab7ef4eec1f69f172b5327ee36a1e0a1381eebca007e1160e5f6bf8512ab26e1ebba233c1dfb9658ba810f0d47b5d9118c326c17000f40fda4e'
             'cb69c6d058c676dbf7246569e7b399a8305c7292b37561dd37a149977398c3deabee47197260b54f549b88d569064aae542ecadf2f931258664dbc4b8f9c9f18'
-            '8e8441b8200a403d208a2a69d4c909573de53e6924dd6b714a3c505f6d41a750c71355c2ff969dcb621e5d60c4a55a22962d1649319a1184c4ac52925a5493cc')
+            '404a80d96d8bcbeb5996f90a63b18c3a771bf527d15b4721ebad085a29c536d235a5027c54cbf280ee4d10951a437286ab7368c31fa3f5b7db2461d7f1ea7b87')
