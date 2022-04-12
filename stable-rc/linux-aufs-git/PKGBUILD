@@ -49,7 +49,7 @@ pkgbase=linux-aufs-git
 # pkgname=('linux-aufs-git' 'linux-aufs-git-headers' 'linux-aufs-git-docs')
 _major=5.17
 _srcname=linux-stable-rc
-pkgver=5.17.2.r340.ge5a51d774e89
+pkgver=5.17.2.r344.g66349d151ef9
 pkgrel=0
 pkgdesc='Linux AUFS'
 arch=('x86_64')
@@ -62,7 +62,7 @@ makedepends=('bc' 'libelf' 'git' 'python-sphinx' 'python-sphinx_rtd_theme'
 #_lucjanpath="https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/${_major}"
 _lucjanpath="https://gitlab.com/sirlucjan/kernel-patches/raw/master/${_major}"
 _aufs_path="aufs-patches"
-_aufs_ver="20220411"
+_aufs_ver="20220412"
 _aufs_patch="0001-aufs-${_aufs_ver}.patch"
 _compiler_path="cpu-patches-sep"
 _compiler_patch="0001-cpu-${_major}-merge-graysky-s-patchset.patch"
@@ -323,7 +323,7 @@ for _p in "${pkgname[@]}"; do
 done
 
 sha512sums=('SKIP'
-            '71194d5a9f0c99c3da9d96ce52950de4626d4f0987d46c5ae5c6f50bb08b30a61ae547dd609e9252691f4ad83827af0156b7cf59d9c37c028312b7febbcd83b5'
+            '87e88b3e4bccbf7b21eb5ffe5971f4e85593b153ea0c4ef3a7f17715812ef1478e16786cab42fcfe226f4933091280c068ad89c08ba9b264887baffcf522d87d'
             'b63921b6246bd1b9545a8042d76334bef8a7ee46e5404c5efec4a842a455a84046e92423b2bc6d950f19dcf85805d7493fe71d6d177e3b46b52a279b0a44d0c9'
             '6c6b336b7fe025154dc936aea8597f6efd0f7f7fd9dbe85fe2936dc8624da41e56b3b48420aaaa0a9d7d05e247ae7e4ce491eddd54bc74cac222aa9c4b5f5669'
             '6861b1755b3ccf52ca75d187b380646f9ae2f35f5175a3181a90cef68125eca6bcdc2ebaf2013ff2ff966af4de49fd8e053149d9fd87792c53dc07f7eaaf04b0'
