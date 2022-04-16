@@ -55,8 +55,8 @@ pkgbase=linux-bfq-dev-git
 # pkgname=('linux-bfq-dev-git' 'linux-bfq-dev-git-headers' 'linux-bfq-dev-git-docs')
 _major=5.17
 _srcname=linux-stable-rc
-pkgver=5.17.2.r340.ge5a51d774e89
-pkgrel=0.2
+pkgver=5.17.3.r8.g8a239d5c59a8
+pkgrel=0.1
 pkgdesc='Linux BFQ-dev'
 arch=('x86_64')
 url="https://github.com/sirlucjan/bfq-mq-lucjan"
@@ -71,7 +71,7 @@ _lucjanpath="https://gitlab.com/sirlucjan/kernel-patches/raw/master/${_major}"
 if [ "$_bfq_rel" = "stable" ]; then
 
  _bfq_name='bfq-lucjan'
- _bfq_ver='r2K220408v3'
+ _bfq_ver='r2K220416v1'
  _bfq_patch="${_major}-${_bfq_name}-${_bfq_ver}.patch"
 
 elif [ "$_bfq_rel" = "unstable" ]; then
@@ -349,7 +349,7 @@ for _p in "${pkgname[@]}"; do
 done
 
 sha512sums=('SKIP'
-            '3c3d13f89209258218024223061099267e9836ba1794cda646d2d920c3dcf8b54424c6aff0f681e074293c104d2d9d767b223648558180431a7595dc47938a06'
+            'f02e4428c29f28bc896a33b1a40df31db05523e8e63215166c516c7519a063733e0ec472f001d4761931e627f5752eb02d06a30057daf6b9ce17668a0f215b22'
             'b63921b6246bd1b9545a8042d76334bef8a7ee46e5404c5efec4a842a455a84046e92423b2bc6d950f19dcf85805d7493fe71d6d177e3b46b52a279b0a44d0c9'
             '6c6b336b7fe025154dc936aea8597f6efd0f7f7fd9dbe85fe2936dc8624da41e56b3b48420aaaa0a9d7d05e247ae7e4ce491eddd54bc74cac222aa9c4b5f5669'
             '6861b1755b3ccf52ca75d187b380646f9ae2f35f5175a3181a90cef68125eca6bcdc2ebaf2013ff2ff966af4de49fd8e053149d9fd87792c53dc07f7eaaf04b0'
