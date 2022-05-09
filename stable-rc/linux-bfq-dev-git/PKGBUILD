@@ -55,8 +55,8 @@ pkgbase=linux-bfq-dev-git
 # pkgname=('linux-bfq-dev-git' 'linux-bfq-dev-git-headers' 'linux-bfq-dev-git-docs')
 _major=5.17
 _srcname=linux-stable-rc
-pkgver=5.17.5.r226.gd7a932089173
-pkgrel=0.1
+pkgver=5.17.5.r330.gc46e840fa104
+pkgrel=0
 pkgdesc='Linux BFQ-dev'
 arch=('x86_64')
 url="https://github.com/sirlucjan/bfq-mq-lucjan"
@@ -94,8 +94,7 @@ source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/${_srcname}.git#br
         "${_lucjanpath}/arch-patches-v16-sep/0004-tick-rcu-Remove-obsolete-rcu_needs_cpu-parameters.patch"
         "${_lucjanpath}/arch-patches-v16-sep/0005-tick-rcu-Stop-allowing-RCU_SOFTIRQ-in-idle.patch"
         "${_lucjanpath}/arch-patches-v16-sep/0006-lib-irq_poll-Declare-IRQ_POLL-softirq-vector-as-ksof.patch"
-        "${_lucjanpath}/arch-patches-v16-sep/0007-NFSv4.1-provide-mount-option-to-toggle-trunking-disc.patch"        
-        "${_lucjanpath}/revert-5.17-patches/0001-Revert-ASoC-Intel-sof_es8336-Add-a-quirk-for-Huawei-.patch"
+        "${_lucjanpath}/arch-patches-v16-sep/0007-NFSv4.1-provide-mount-option-to-toggle-trunking-disc.patch"
          # the main kernel config files
         'config')
 
@@ -360,5 +359,4 @@ sha512sums=('SKIP'
             '9d905da7321f165ed36bf42803f80a386c1d09c6335919164871a03dc15ffe8e1204de522099051f3effc07b126f5b2d692f3f7c20d576a384eb56540af890b6'
             'de068782a004f79be4d56a6b207ea1dafc9aeb71688f26ee5f7c5ea1df17e63a29484bba10be1418a2f3643426541471d1bc28a699cfa94f86dc494e44f36712'
             'e0f473fa58e4aa54aa598f5bd5af15b9d3055a7f9cefb73e050ae6602b4474ec4bce60a863f3ab6c2b28c313e9e104cbfedbe782edf0d51b3f136ea9863a4bc4'
-            '26854da6b39d6985cdb4b5e3fb27e08859930e5c1859e6e1a36f50683d96a73a7c363683c6e254fc1c65fefe030faa4578646051bc6a1df0f006f1b7e46dc096'
             '3fa528f5a52f80ebb78bd4d1d052dfdd17d017f34c447cc0571b555371a02eab9a5392b8a1b427d6a0a0f4c54a1e371f49c4de763a83b536808cb5c521894b1e')
