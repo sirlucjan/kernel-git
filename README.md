@@ -10,11 +10,11 @@
 
 [![Packaging status](https://repology.org/badge/vertical-allrepos/linux-bfq-dev.svg)](https://repology.org/project/linux-bfq-dev/versions)
 
-- linux-uksm-git from "Linux kernel stable tree"
+- linux-uksmd-git from "Linux kernel stable tree"
  
-- linux-uksm-git from "Linux Stable -rc releases"
+- linux-uksmd-git from "Linux Stable -rc releases"
 
-[![Packaging status](https://repology.org/badge/vertical-allrepos/linux-uksm.svg)](https://repology.org/project/linux-uksm/versions)
+[![Packaging status](https://repology.org/badge/vertical-allrepos/linux-uksmd.svg)](https://repology.org/project/linux-uksmd/versions)
 
 ###### linux-aufs-git incorporates:
 
@@ -46,9 +46,9 @@
 
 * ~~[bfq-reverts](https://github.com/sirlucjan/kernel-patches/tree/master/5.11/bfq-reverts-all) / [bfq-reverts](https://gitlab.com/sirlucjan/kernel-patches/tree/master/5.11/bfq-reverts-all) - specific patches authored by Piotr Gorski~~
 
-###### linux-uksm-git incorporates:
+###### linux-uksmd-git incorporates:
 
-* [UKSM (sources)](https://github.com/dolohow/uksm) / [UKSM (info)](https://www.usenix.org/sites/default/files/conference/protected-files/fast18_slides_xia.pdf) - resync from dolohow’s github
+* [UKSMD](https://gitlab.com/post-factum/uksmd) - Userspace KSM helper daemon authored by Oleksandr Natalenko
 
 * [graysky's GCC/Clang patch](https://github.com/graysky2/kernel_compiler_patch) - version for gcc v11/clang v12
 
