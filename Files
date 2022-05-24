@@ -8,7 +8,7 @@
 │   ├── linux-bfq-dev-git
 │   │   ├── config
 │   │   └── PKGBUILD
-│   └── linux-uksm-git
+│   └── linux-uksmd-git
 │       ├── config
 │       └── PKGBUILD
 ├── stable
