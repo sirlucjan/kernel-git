@@ -49,8 +49,8 @@ pkgbase=linux-uksmd-git
 # pkgname=('linux-uksmd-git' 'linux-uksmd-git-headers' 'linux-uksmd-git-docs')
 _major=5.17
 _srcname=linux-stable-rc
-pkgver=5.17.9.r0.g5c2fc53857eb
-pkgrel=1
+pkgver=5.17.11.r112.g539bc20dce9f
+pkgrel=0
 pkgdesc='Linux UKSMD'
 arch=('x86_64')
 url="https://gitlab.com/post-factum/uksmd"
@@ -69,13 +69,12 @@ _compiler_patch="0001-cpu-${_major}-merge-graysky-s-patchset.patch"
 source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/${_srcname}.git#branch=linux-${_major}.y"
         "${_lucjanpath}/${_uksmd_path}/${_uksmd_patch}"
         "${_lucjanpath}/${_compiler_path}/${_compiler_patch}"
-        "${_lucjanpath}/arch-patches-v16-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
-        "${_lucjanpath}/arch-patches-v16-sep/0002-random-treat-bootloader-trust-toggle-the-same-way-as.patch"
-        "${_lucjanpath}/arch-patches-v16-sep/0003-tick-Detect-and-fix-jiffies-update-stall.patch"
-        "${_lucjanpath}/arch-patches-v16-sep/0004-tick-rcu-Remove-obsolete-rcu_needs_cpu-parameters.patch"
-        "${_lucjanpath}/arch-patches-v16-sep/0005-tick-rcu-Stop-allowing-RCU_SOFTIRQ-in-idle.patch"
-        "${_lucjanpath}/arch-patches-v16-sep/0006-lib-irq_poll-Declare-IRQ_POLL-softirq-vector-as-ksof.patch"
-        "${_lucjanpath}/arch-patches-v16-sep/0007-NFSv4.1-provide-mount-option-to-toggle-trunking-disc.patch"
+        "${_lucjanpath}/arch-patches-v17-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
+        "${_lucjanpath}/arch-patches-v17-sep/0002-tick-Detect-and-fix-jiffies-update-stall.patch"
+        "${_lucjanpath}/arch-patches-v17-sep/0003-tick-rcu-Remove-obsolete-rcu_needs_cpu-parameters.patch"
+        "${_lucjanpath}/arch-patches-v17-sep/0004-tick-rcu-Stop-allowing-RCU_SOFTIRQ-in-idle.patch"
+        "${_lucjanpath}/arch-patches-v17-sep/0005-lib-irq_poll-Declare-IRQ_POLL-softirq-vector-as-ksof.patch"
+        "${_lucjanpath}/arch-patches-v17-sep/0006-NFSv4.1-provide-mount-option-to-toggle-trunking-disc.patch"
          # the main kernel config files
         'config')
 
@@ -326,11 +325,10 @@ done
 sha512sums=('SKIP'
             'cf73767a104132c34937d69fe25e95f5c5bd5da4ff959ba5aca8e45e5fe7cc07540babb0637ffde7459560131f74104ffc3e7e44989b9e9826cea2bff807ae1b'
             'b63921b6246bd1b9545a8042d76334bef8a7ee46e5404c5efec4a842a455a84046e92423b2bc6d950f19dcf85805d7493fe71d6d177e3b46b52a279b0a44d0c9'
-            'db7645d57a8439e60f68dc58bcf26c106f170847a4dc2ce8de1fae1e021382d5330676fadd7af49519b5bb7e1f0b28a66595b4eaf32ea1c616d4e2c95fae9a23'
-            'e898db1663004c60758f74868da0fc4c36cb9c20cb53768b875f12b1af86c9b9d1891f6046ae3a06213b4a6e4259d34b86be865713c85883fef80259a966e558'
-            '1134a0e8bedef8e4c0305c85d2bb0652c4af0d403f0e961a157f3e4faf1cee2637aa219533009cb79db657cb583e8f013e5891980ad41536b17f391fbd38266b'
-            'd45f7d4dd7d54302afdae31c66aac5bf92b8fe42154bd4969dee0d3f96dfbdf9d747a732cd69f80110fa27790a6c57d4c3bf7c27f6f207015d2caf95311685d7'
-            '9d905da7321f165ed36bf42803f80a386c1d09c6335919164871a03dc15ffe8e1204de522099051f3effc07b126f5b2d692f3f7c20d576a384eb56540af890b6'
-            'de068782a004f79be4d56a6b207ea1dafc9aeb71688f26ee5f7c5ea1df17e63a29484bba10be1418a2f3643426541471d1bc28a699cfa94f86dc494e44f36712'
-            'e0f473fa58e4aa54aa598f5bd5af15b9d3055a7f9cefb73e050ae6602b4474ec4bce60a863f3ab6c2b28c313e9e104cbfedbe782edf0d51b3f136ea9863a4bc4'
+            'd59ce6bb29541cc636854812a473167029378b5b2eb9080f1a2a09846521d3a8046ed89fb4351b028b5a5727d4a6b5018b8426afaef775bb29f64efa938a4c65'
+            '0707b8b7a8ac4ef6533cc6fce798bf626f136523918eb76b8889613add23af6f6eb0d8f5ad2c1a00845f34003a3b39c6f7f7846aab08af262ab45bfbc3c2cdcd'
+            'f9d4ac24453007da41ac43cf2d654dc489e2d3d0b3a4fae766c8624dfc32cc894eef6b19ba4225ab7becbfac0a14267dfabe60f676aec8f1ab28ee29c95ea61c'
+            'c231102d5a6b9f2bcdca41fc7245a037613ffab5099333e02d3d3ce03f04e7bf56a2c0891b2d42b21825cdcf8bf69ef68a70cf754f9c712b694b0815a5b2ef8c'
+            'ef55b0bc6354883fffc0effdd29bdbbad4f17855161fe2908fa812455dbf576345797b67369f43609e1517ca77833e235cb3cd308d622fd6603bf50e6d6eb264'
+            'b55b194601d7859c01302886b3808d851d4aea64b866833114b227149c659bcb0cf347102a9de88df7de13f8b0f7fa3ca63f3c6ac3372f34efc0a2e2f2e2924a'
             'd2b587f4cba42b50793df13479a5cb93f308f538ff431409da04b57a30b88e2c85a831280a1df2e1cef9bae6c4309b62dc42f667b061f067eedc90b4bbd6ba13')
