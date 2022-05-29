@@ -43,20 +43,14 @@ _use_current=
 ### Running with a 1000 HZ tick rate
 _1k_HZ_ticks=
 
-### Download bfq patchset
-# ATTENTION - one of two predefined values should be selected!
-# 'stable' - stable releases (recommended)
-# 'unstable' - dev releases
-_bfq_rel='stable'
-
 ### Do not edit below this line unless you know what you're doing
 
 pkgbase=linux-bfq-dev-git
 # pkgname=('linux-bfq-dev-git' 'linux-bfq-dev-git-headers' 'linux-bfq-dev-git-docs')
-_major=5.17
+_major=5.18
 _srcname=linux-stable-rc
-pkgver=5.17.11.r112.g539bc20dce9f
-pkgrel=0
+pkgver=5.18.r48.g10e6e3d47333
+pkgrel=0.1
 pkgdesc='Linux BFQ-dev'
 arch=('x86_64')
 url="https://github.com/sirlucjan/bfq-mq-lucjan"
@@ -67,33 +61,16 @@ makedepends=('bc' 'libelf' 'git' 'python-sphinx' 'python-sphinx_rtd_theme'
              'texlive-latexextra' 'xmlto')
 #_lucjanpath="https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/${_major}"
 _lucjanpath="https://gitlab.com/sirlucjan/kernel-patches/raw/master/${_major}"
-
-if [ "$_bfq_rel" = "stable" ]; then
-
- _bfq_name='bfq-lucjan'
- _bfq_ver='r2K220521v1'
- _bfq_patch="${_major}-${_bfq_name}-${_bfq_ver}.patch"
-
-elif [ "$_bfq_rel" = "unstable" ]; then
-
- _bfq_name='bfq-dev-lucjan'
- _bfq_ver='r2K220513v1'
- _bfq_patch="${_major}-${_bfq_name}-${_bfq_ver}.patch"
-
-fi
-
+_bfq_name='bfq-lucjan'
+_bfq_ver='r2K220523v1'
+_bfq_patch="${_major}-${_bfq_name}-${_bfq_ver}.patch"
 _compiler_path="cpu-patches-sep"
 _compiler_patch="0001-cpu-${_major}-merge-graysky-s-patchset.patch"
 
 source=("git://git.kernel.org/pub/scm/linux/kernel/git/stable/${_srcname}.git#branch=linux-${_major}.y"
         "${_lucjanpath}/${_bfq_name}/${_bfq_patch}"
         "${_lucjanpath}/${_compiler_path}/${_compiler_patch}"
-        "${_lucjanpath}/arch-patches-v17-sep/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
-        "${_lucjanpath}/arch-patches-v17-sep/0002-tick-Detect-and-fix-jiffies-update-stall.patch"
-        "${_lucjanpath}/arch-patches-v17-sep/0003-tick-rcu-Remove-obsolete-rcu_needs_cpu-parameters.patch"
-        "${_lucjanpath}/arch-patches-v17-sep/0004-tick-rcu-Stop-allowing-RCU_SOFTIRQ-in-idle.patch"
-        "${_lucjanpath}/arch-patches-v17-sep/0005-lib-irq_poll-Declare-IRQ_POLL-softirq-vector-as-ksof.patch"
-        "${_lucjanpath}/arch-patches-v17-sep/0006-NFSv4.1-provide-mount-option-to-toggle-trunking-disc.patch"
+        "${_lucjanpath}/arch-patches/0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch"
          # the main kernel config files
         'config')
 
@@ -349,12 +326,7 @@ for _p in "${pkgname[@]}"; do
 done
 
 sha512sums=('SKIP'
-            '963935b9e6a7764467c147d4e33cd7ff1b84bef6e4e0f7ef201510c7ba438096fe16a26fb8b6b2ee6efe63a3d73870c387e0dd692a8b525e88ec3263285ac3d0'
-            'b63921b6246bd1b9545a8042d76334bef8a7ee46e5404c5efec4a842a455a84046e92423b2bc6d950f19dcf85805d7493fe71d6d177e3b46b52a279b0a44d0c9'
-            'd59ce6bb29541cc636854812a473167029378b5b2eb9080f1a2a09846521d3a8046ed89fb4351b028b5a5727d4a6b5018b8426afaef775bb29f64efa938a4c65'
-            '0707b8b7a8ac4ef6533cc6fce798bf626f136523918eb76b8889613add23af6f6eb0d8f5ad2c1a00845f34003a3b39c6f7f7846aab08af262ab45bfbc3c2cdcd'
-            'f9d4ac24453007da41ac43cf2d654dc489e2d3d0b3a4fae766c8624dfc32cc894eef6b19ba4225ab7becbfac0a14267dfabe60f676aec8f1ab28ee29c95ea61c'
-            'c231102d5a6b9f2bcdca41fc7245a037613ffab5099333e02d3d3ce03f04e7bf56a2c0891b2d42b21825cdcf8bf69ef68a70cf754f9c712b694b0815a5b2ef8c'
-            'ef55b0bc6354883fffc0effdd29bdbbad4f17855161fe2908fa812455dbf576345797b67369f43609e1517ca77833e235cb3cd308d622fd6603bf50e6d6eb264'
-            'b55b194601d7859c01302886b3808d851d4aea64b866833114b227149c659bcb0cf347102a9de88df7de13f8b0f7fa3ca63f3c6ac3372f34efc0a2e2f2e2924a'
-            '621b865035576f613d49864d2c319f6dc2b0f6c2be19debe2d36624d24acc94063c31dcf0c62f262ade7a4ac3d48675b3f418c07a010a6206562b392d4b87aa2')
+            '8a5b5aa23c0feca55914d50bebe5c3c88cb5dd9f95fd2f7cb56a93cedec84b2ffa7e6cdce913eb007fbc950cd90570b5056c2cb17d9c173a78c3a8178de03bfd'
+            '2fa1250d93049fcfcfe04d201236eb7a662703b71a73b77c8e5df72900ad40cbb0b818c9c82cbf0204f67bf496bce7310d713ff9106825816525be1ba2da68e8'
+            '654552b89b93cb78f1fd7cc7687db1e6d0a86789e0c31f812e61fbc1440e8135f3e5c46ff0abfd74d53d7bd81a60406bf262745697a9034f10bb5c464342febf'
+            'a221f24fd4f0a459234ed6ea75b2d9c7d9b3baa87ecaa0d9a7d128b8c963133eb8c9f0b63c88d11883671ded3b711a3bec598aeaf5aa87649c2c62cab608157b')
