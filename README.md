@@ -48,7 +48,7 @@
 
 ###### linux-uksmd-git incorporates:
 
-* [UKSMD](https://gitlab.com/post-factum/uksmd) - Userspace KSM helper daemon authored by Oleksandr Natalenko
+* [UKSMD](https://codeberg.org/pf-kernel/uksmd) - Userspace KSM helper daemon authored by Oleksandr Natalenko
 
 * [graysky's GCC/Clang patch](https://github.com/graysky2/kernel_compiler_patch) - version for gcc v11/clang v12
 
